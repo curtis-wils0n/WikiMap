@@ -12,39 +12,53 @@ As a user, I want to be able to...
 - ...*save* maps I want to come back to, *because* I might need to refer to it in the future
 
 // BROWSE
+
 Seeing a list of viewable maps
-GET '/maps'
+- GET '/maps'
+
 See a list of locations on a map
-GET '/maps/:map_id/locations
+- GET '/maps/:map_id/locations
 
 // READ
+
 Viewing a single map
-GET '/maps/:map_id'
+- GET '/maps/:map_id'
+
 View location details
-GET '/maps/:map_id/locations/:location_id
+- GET '/maps/:map_id/locations/:location_id'
+
 View profile
-GET '/user/:map_id'
+- GET '/users/:id'
 
 // EDIT
+
 Modifying locations on existing maps
-PUT '/maps/:map_id'
+- PUT '/maps/:map_id/locations/:location_id'
 
 // ADD
+
 Create map
-POST '/maps/:map_id'
+- POST '/maps'
+
 Create location
-POST '/maps/:map_id/locations'
+- POST '/maps/:map_id/locations'
+
 Create favourite (aka append map to favourite list)
-PUT '/user/:map_id/favourites
+- POST '/users/:user_id/favourites?map_id=x'
+
 Stretch: Create user
+- POST '/users'
 
 // DELETE
+
 Remove locations from maps
-DELETE '/maps/:map_id/locations/:location_id'
+- DELETE '/maps/:map_id/locations/:location_id'
+
 Remove maps that I created
-DELETE
+- DELETE '/maps/:map_id'
+
 Remove map from favourites
-DELETE
+- DELETE '/users/:user_id/favourites?map_id=x'
 
 MVP
 - Being able to create a map and add pins to it that others can see
