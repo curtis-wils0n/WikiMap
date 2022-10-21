@@ -10,3 +10,5 @@ As a user, I want to be able to...
 - ...*see* a list of viewable maps, *because* I want to explore new places
 - ...*view* a single map, *because* I want to see more details (i.e., what the map was created for)
 - ...*save* maps I want to come back to, *because* I might need to refer to it in the future
+
+//TODO: create BREAD sections (delete)
