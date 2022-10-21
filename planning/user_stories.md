@@ -11,4 +11,37 @@ As a user, I want to be able to...
 - ...*view* a single map, *because* I want to see more details (i.e., what the map was created for)
 - ...*save* maps I want to come back to, *because* I might need to refer to it in the future
 
-//TODO: create BREAD sections (delete)
+// BROWSE
+Seeing a list of viewable maps
+GET '/maps'
+See a list of locations on a map
+GET '/maps/:map_id/locations
+
+// READ
+Viewing a single map
+GET '/maps/:map_id'
+View location details
+GET '/maps/:map_id/locations/:location_id
+View profile
+GET '/user/:map_id'
+
+// EDIT
+Modifying locations on existing maps
+PUT '/maps/:map_id'
+
+// ADD
+Create map
+POST '/maps/:map_id'
+Create location
+POST '/maps/:map_id/locations'
+Create favourite (aka append map to favourite list)
+PUT '/user/:map_id/favourites
+Stretch: Create user
+
+// DELETE
+Remove locations from maps
+DELETE '/maps/:map_id/locations/:location_id'
+Remove maps that I created
+DELETE
+Remove map from favourites
+DELETE
