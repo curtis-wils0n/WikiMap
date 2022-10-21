@@ -45,3 +45,11 @@ Remove maps that I created
 DELETE
 Remove map from favourites
 DELETE
+
+MVP
+- Being able to create a map and add pins to it that others can see
+  - Modify/delete a map you have created
+- Being able to see other public maps and view them individually
+MVD
+- Show a list of pre-made maps
+- Create a map with locations
