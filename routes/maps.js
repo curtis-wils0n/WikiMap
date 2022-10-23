@@ -13,6 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:map_id', (req, res) => {
+  console.log();
   const templateVars = {
     map_id: req.params.map_id,
   };

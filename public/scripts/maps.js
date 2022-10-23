@@ -10,7 +10,7 @@ $(() => {
       $mapsList.empty();
 
       for(const map of response.maps) {
-        $(`<li class="map">`).text(map.name).appendTo($mapsList);
+        $(`<li><a href="/maps/${map.id}" class="map">${map.title}</a>`).appendTo($mapsList);
       }
     });
   });
