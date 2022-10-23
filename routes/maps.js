@@ -12,6 +12,10 @@ router.get('/', (req, res) => {
   res.render('maps');
 });
 
+router.get('/create', (req, res) => {
+  res.render('map_create');
+});
+
 router.get('/:map_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
