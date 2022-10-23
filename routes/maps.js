@@ -7,6 +7,7 @@
 
 const express = require('express');
 const router  = express.Router();
+const userQueries = require('../db/queries/maps');
 
 router.get('/', (req, res) => {
   res.render('maps');
@@ -14,6 +15,20 @@ router.get('/', (req, res) => {
 
 router.get('/create', (req, res) => {
   res.render('map_create');
+});
+
+router.post('/create', (req, res) => {
+  const mapInfo =[
+    req.cookies['user_id'],
+    req.body.title,
+    req.body.description,
+    new Date(),
+    req.body.zoom,
+    req.body.lat,
+    req.body.lng
+  ];
+  userQueries.newMap(mapInfo)
+    .then ((map) => console.log(map))
 });
 
 router.get('/:map_id', (req, res) => {
