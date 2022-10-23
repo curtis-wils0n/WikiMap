@@ -51,7 +51,9 @@ app.use('/maps', mapsRoutes);
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  const templateVars = {id: req.cookies['user_id']}
+  const templateVars = {
+    id: req.cookies['user_id'],
+  }
   res.render('index', templateVars);
 });
 

@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
 router.get('/:map_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
+    api_key: process.env.MAP_API,
   };
   res.render('maps_show', templateVars);
 });
