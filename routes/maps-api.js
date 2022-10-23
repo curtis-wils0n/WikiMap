@@ -21,4 +21,16 @@ router.get('/', (req, res) => {
     });
 });
 
+// router.get('/:map_id', (req, res) => {
+//   mapQueries.getMapsById(req.params.map_id)
+//     .then(map => {
+//       res.json({ map });
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
+// });
+
 module.exports = router;
