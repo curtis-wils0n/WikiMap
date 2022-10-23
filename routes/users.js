@@ -8,8 +8,22 @@
 const express = require('express');
 const router  = express.Router();
 
+const userId = req.cookies['user_id'];
+
+router.use((req,res,next) => {
+  if (!userId) {
+    res.status(401).send('Cannot access: You must be logged in');
+  }
+  next();
+});
+
 router.get('/', (req, res) => {
   res.render('users');
-}); 
+});
+
+router.get('/:id', (req, res) => {
+  
+  res.render('users');
+});
 
 module.exports = router;
