@@ -14,7 +14,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-  res.render('map_create');
+  const templateVars = {user_id: req.cookies['user_id']};
+  res.render('map_create', templateVars);
 });
 
 router.post('/create', (req, res) => {
@@ -28,7 +29,7 @@ router.post('/create', (req, res) => {
     req.body.lng
   ];
   userQueries.newMap(mapInfo)
-    .then ((map) => res.redirect('/maps'))
+    .then (() => res.redirect('/maps'))
 });
 
 router.get('/:map_id', (req, res) => {

@@ -29,6 +29,7 @@ router.get('/:id', (req, res) => {
       res.status(401).send('Cannot access: User does not exist');
     } else {
       templateVars = user[0];
+      templateVars.user_id = userId;
       res.render('user', templateVars);
     }
 
