@@ -23,10 +23,14 @@ router.get('/', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const userId = req.cookies['user_id'];
-  userQueries.getUser(userId)
+  userQueries.getUser(req.params.id)
   .then (user => {
-    templateVars = user[0];
-    res.render('user', templateVars);
+    if (user[0] === undefined) {
+      res.status(401).send('Cannot access: User does not exist');
+    } else {
+      templateVars = user[0];
+      res.render('user', templateVars);
+    }
 
   })
   .catch(err => {
