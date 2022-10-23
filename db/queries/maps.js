@@ -7,4 +7,19 @@ const getMaps = () => {
     });
 };
 
-module.exports = { getMaps };
+const getMapsById = (map_id) => {
+  const queryString = `
+  SELECT * FROM maps
+  WHERE id = $1;
+  `
+  const queryParams = [map_id]
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows[0];
+    });
+};
+
+module.exports = {
+  getMaps,
+  getMapsById,
+};
