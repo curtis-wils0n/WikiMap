@@ -9,8 +9,9 @@ const getMaps = () => {
 
 const getMapsById = (map_id) => {
   const queryString = `
-  SELECT * FROM maps
-  WHERE id = $1;
+  SELECT *, users.name as name FROM maps
+  JOIN users ON maps.owner_id = users.id
+  WHERE maps.id = $1;
   `
   const queryParams = [map_id]
   return db.query(queryString, queryParams)
