@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>User</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -10,22 +10,32 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/user.css" />
   <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
+
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script defer src="/scripts/users.js"></script>
 </head>
 
 <body>
   <%- include('header') %>
   <main class = 'container'>
-    <p>Welcome to "Name of Website". Collaborate with your friends by creating maps and placing markers of the places you want to share! </p>
-    <img src ="https://github.com/curtis-wils0n/midterm-project/blob/master/images/homeMap.jpg?raw=true" alt = "Homepage Picture">
+    <h1><%=name%></h1>
+    <h2><%=email%></h2>
+    <img src = <%=profile_picture_url%>></h1>
+    <div>
+      <span class = 'map-container'>
+        <h3>Favourite Map</h3>
+      </span>
+     <span class = 'map-container'>
+        <h3>Contribution Map</h3>
+      </span>
+    </div>
   </main>
 </body>
 
