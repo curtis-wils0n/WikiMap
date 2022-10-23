@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +22,7 @@
 </head>
 
 <body>
-  <header>
-    <nav class = "nav-title rainbow-letters">"Name of Website"</nav>
-    <span class ="nav-ref">
-      <a class="nav-item nav-link rainbow-letters" href="/users/<%=id%>"><i class="fa-solid fa-map-pin"></i>  My Profile</a>
-      <a class="nav-item nav-link rainbow-letters" href="/map/id"><i class="fa-solid fa-map-pin"></i>  Create Map</a>
-      <a class="nav-item nav-link rainbow-letters" href="/maps"><i class="fa-solid fa-map-pin"></i>  Map List</a>
-    </span>
-  </header>
+  <%- include('header') %>
   <main class = 'container'>
     <p>Welcome to "Name of Website". Collaborate with your friends by creating maps and placing markers of the places you want to share! </p>
     <img src ="https://github.com/curtis-wils0n/midterm-project/blob/master/images/homeMap.jpg?raw=true" alt = "Homepage Picture">

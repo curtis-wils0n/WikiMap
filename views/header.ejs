@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>User</title>
+  <title>Home Page</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -10,33 +10,25 @@
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/user.css" />
-  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
-
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/app.js"></script>
 </head>
 
 <body>
-  <%- include('header') %>
-  <main class = 'container'>
-    <h1><%=name%></h1>
-    <h2><%=email%></h2>
-    <img src = <%=profile_picture_url%>></h1>
-  </main>
-  <main class = 'map-container'>
-    <h3>Fav Map</h3>
-  </main>
-  <main class = 'map-container'>
-    <h3>Fav Map</h3>
-  </main>
-  <button id="fetch-users">Fetch Users via AJAX</button>
-  <ul id="users"></ul>
+  <header>
+    <nav class = "nav-title rainbow-letters">"Name of Website"</nav>
+    <span class ="nav-ref">
+      <a class="nav-item nav-link rainbow-letters" href="/users/<%=id%>"><i class="fa-solid fa-map-pin"></i>  My Profile</a>
+      <a class="nav-item nav-link rainbow-letters" href="/map/id"><i class="fa-solid fa-map-pin"></i>  Create Map</a>
+      <a class="nav-item nav-link rainbow-letters" href="/maps"><i class="fa-solid fa-map-pin"></i>  Map List</a>
+    </span>
+  </header>
 </body>
 
 </html>
