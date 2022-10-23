@@ -1,18 +1,79 @@
 body {
   display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  min-height: 100vh;
+  background: #F8F2F0;
+
+}
+
+//CSS for Navigation Section Placement
+header {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+  width: 35%;
+  border-right: 5px solid black;
+  margin-right: 2%;
 }
+
+//CSS for Navigation Title
+.nav-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size:300%;
+  font-weight: 900;
+  font-family: 'Fuzzy Bubbles', cursive;
+}
+
+//CSS for Navigation Directories
+.nav-ref {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 10% auto;
+  font-size:200%;
+  font-weight: 900;
+  text-decoration: none;
+  font-family: 'Fuzzy Bubbles', cursive;
+}
+
+.rainbow-letters {
+  background-image: linear-gradient(to left, violet, indigo, blue, green, rgb(211, 211, 32), orange, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+//Remove underline and color change from a href
+a {
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 10%;
+}
+
+a:hover {
+  -webkit-transform: scale(1.2);
+}
+
+main {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p {
+  width: 50%;
+  font-size:100%;
+  font-weight: 900;
+  text-decoration: none;
+  word-wrap: break-word;
+  font-family: 'Fuzzy Bubbles', cursive;
+  text-align-last: center;
+}
+
+
