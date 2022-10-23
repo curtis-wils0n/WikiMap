@@ -9,9 +9,9 @@ $(() => {
     const map = response.map;
     const $mapDetails = $('#map-details');
     $mapDetails.empty();
-    $(`<p class="title">T`).text('Title: ' + map.title).appendTo($mapDetails);
-    $(`<p class="name">T`).text('By: ' + map.name).appendTo($mapDetails);
-    $(`<p class="description">T`).text('Description: ' + map.description).appendTo($mapDetails);
-    $(`<p class="created_date">T`).text('Created: ' + map.created_date).appendTo($mapDetails);
+    $(`<h1 class="title">`).text(map.title).appendTo($mapDetails);
+    $(`<p class="name">`).text('By: ' + map.name).appendTo($mapDetails);
+    $(`<p class="created_date">`).text('Created: ' + map.created_date).appendTo($mapDetails);
+    $(`<p class="description">`).text('Description: ' + map.description).appendTo($mapDetails);
   });
 });
