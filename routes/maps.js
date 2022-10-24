@@ -39,18 +39,24 @@ router.post('/:map_id', (req, res) => {
     req.cookies['user_id'],
     req.params.map_id
   ];
-  if (userQueries.checkFavouritesExist(favouriteInfo)) {
-    res.status(400).send('Favourite already exists');
-  } else {
-    userQueries.newFavourite(favouriteInfo)
-      .then (() => res.redirect(`/api/favourites`))
-  }
+  userQueries.checkFavouritesExist(favouriteInfo)
+    .then((boolean) => {
+      if(boolean === true) {
+        userQueries.deleteFavourite(favouriteInfo)
+        .catch(err => console.log(err.message));
+      } else {
+        userQueries.newFavourite(favouriteInfo)
+        .catch(err => console.log(err.message));
+      }
+    })
+    .catch(err => console.log(err.message));
 });
 
 router.get('/:map_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
     api_key: process.env.MAP_API,
+    userId: req.cookies['user_id']
   };
   res.render('maps_show', templateVars);
 });

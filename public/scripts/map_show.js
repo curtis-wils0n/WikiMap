@@ -16,18 +16,32 @@ $(() => {
     // google maps code
   });
 
-  // const favouriteId = $('.fa-star').attr('value');
-  // $('.fa-star').click(() => {
-  //   //Unfavourite a map
-  //   if ($('.fa-star').hasClass('iconStarActive')) {
-  //     $('.fa-star').removeClass('iconStarActive');
-  //     $('.fa-star').addClass('iconStarInactive');
-  //   } else {
-  //     //Favourite a map
-  //     $('.fa-star').removeClass('iconStarInactive');
-  //     $('.fa-star').addClass("iconStarActive");
-  //   }
-  // })
+  //Favourite status of map
+  const userId = $('#favourite').attr('value');
+  $.ajax({
+    method: 'GET',
+    url: `/api/favourites/${userId}`
+  })
+  .done((response) => {
+    for (const favourite of response.favourite) {
+      if (favourite.id === id ) {
+        $('.fa-star').addClass('iconStarActive')
+      }
+    }
+  })
+
+  const favouriteId = $('.fa-star').attr('value');
+  $('.fa-star').click(() => {
+    //Unfavourite a map
+    if ($('.fa-star').hasClass('iconStarActive')) {
+      $('.fa-star').removeClass('iconStarActive');
+      $('.fa-star').addClass('iconStarInactive');
+    } else {
+      //Favourite a map
+      $('.fa-star').removeClass('iconStarInactive');
+      $('.fa-star').addClass("iconStarActive");
+    }
+  })
 });
 
 // code here
