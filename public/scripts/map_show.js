@@ -13,5 +13,8 @@ $(() => {
     $(`<p class="name">`).text('By: ' + map.name).appendTo($mapDetails);
     $(`<p class="created_date">`).text('Created: ' + map.created_date).appendTo($mapDetails);
     $(`<p class="description">`).text('Description: ' + map.description).appendTo($mapDetails);
+    // google maps code
   });
 });
+
+// code here
