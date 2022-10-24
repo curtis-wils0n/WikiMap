@@ -33,13 +33,12 @@ $(() => {
   })
   .done((response) => {
     for (const favourite of response.favourite) {
-      if (favourite.id === id ) {
+      if (favourite.id == id ) {
         $('.fa-star').addClass('iconStarActive')
+        break;
       }
     }
-  })
-
-  const favouriteId = $('.fa-star').attr('value');
+  });
   $('.fa-star').click(() => {
     //Unfavourite a map
     if ($('.fa-star').hasClass('iconStarActive')) {
