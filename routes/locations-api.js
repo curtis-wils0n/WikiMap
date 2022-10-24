@@ -10,9 +10,9 @@ const router  = express.Router();
 const mapQueries = require('../db/queries/maps');
 
 router.get('/', (req, res) => {
-  mapQueries.getMarkers()
-    .then(markers => {
-      res.json({ markers });
+  mapQueries.getLocations()
+    .then(locations => {
+      res.json({ locations });
     })
     .catch(err => {
       res
@@ -21,10 +21,11 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:marker_id', (req, res) => {
-  mapQueries.getMapsById(req.params.marker_id)
-    .then(marker => {
-      res.json({ marker });
+
+router.get('/:location_id', (req, res) => {
+  mapQueries.getMapsById(req.params.location_id)
+    .then(location => {
+      res.json({ location });
     })
     .catch(err => {
       res
@@ -33,4 +34,20 @@ router.get('/:marker_id', (req, res) => {
     });
 });
 
+//Filter locations by specific user and map
+router.get('/maps/:map_id', (req, res) => {
+  let inputs = [
+    req.cookies['user_id'],
+    req.params.map_id
+  ]
+  mapQueries.getLocationsByUserId(inputs)
+    .then(locations => {
+      res.json({ locations });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 module.exports = router;

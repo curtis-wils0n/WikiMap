@@ -69,14 +69,14 @@ router.get('/:map_id/locations', (req, res) => {
 });
 
 router.post('/:map_id/locations', (req, res) => {
-  const markerInfo =[
+  const locationInfo =[
     req.cookies['user_id'],
     req.params.map_id,
     req.body.title,
     req.body.description,
-    req.body.markerImage
+    req.body.locationImage
   ];
-  userQueries.newMarker(markerInfo)
+  userQueries.newLocation(locationInfo)
     .then (() => res.redirect(`/maps/${req.params.map_id}`))
 });
 
