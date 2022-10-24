@@ -11,7 +11,12 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/map.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/map_show.js"></script>
@@ -22,6 +27,22 @@
   <div id="identifier" value="<%= map_id %>"></div>
   <div id="map-details"></div>
   <div id="google-map"></div>
+  <div id = 'favourite'>
+    Favourite: <i class="fa-solid fa-star iconStarInactive"></i>
+  </div>
+  <form id = 'newMarkerForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
+    <div>
+      <fieldset>
+        <label for="title">Enter marker name:</label>
+        <input type="text" name="title" placeholder="Marker name" required/>
+        <label for="description">Enter marker description:</label>
+        <textarea type="text" name="description" placeholder="Marker description" required></textarea>
+        <label for="markerImage">Enter img url:</label>
+        <input type="url" name="markerImage" placeholder="Image URL link" required/>
+        <button type="submit">Place marker</button>
+      </fieldset>
+    </div>
+  </form>
 </body>
 
 </html>

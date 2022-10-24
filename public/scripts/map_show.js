@@ -15,6 +15,16 @@ $(() => {
     $(`<p class="description">`).text('Description: ' + map.description).appendTo($mapDetails);
     // google maps code
   });
+
+  const favourite = $('.fa-star').click(() => {
+    if ($('.fa-star').hasClass('iconStarActive')) {
+      $('.fa-star').removeClass('iconStarActive');
+      $('.fa-star').addClass('iconStarInactive');
+    } else {
+      $('.fa-star').removeClass('iconStarInactive');
+      $('.fa-star').addClass("iconStarActive");
+    }
+  })
 });
 
 // code here

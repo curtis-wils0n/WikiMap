@@ -47,6 +47,18 @@ router.get('/:map_id/locations', (req, res) => {
   res.render('locations', templateVars);
 });
 
+router.post('/:map_id/locations', (req, res) => {
+  const markerInfo =[
+    req.cookies['user_id'],
+    req.params.map_id,
+    req.body.title,
+    req.body.description,
+    req.body.markerImage
+  ];
+  userQueries.newMarker(markerInfo)
+    .then (() => res.redirect(`/maps/${req.params.map_id}`))
+});
+
 router.get('/:map_id/locations/:location_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
