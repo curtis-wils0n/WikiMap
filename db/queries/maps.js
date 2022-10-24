@@ -59,6 +59,17 @@ const getMarkersById = (markers_id) => {
     });
 };
 
+const newFavourite = (inputs) => {
+  const queryString = `
+  INSERT INTO favourites (owner_id, map_id)
+  VALUES ($1,$2) RETURNING *;`
+  return db.query(queryString, inputs)
+    .then(data => {
+      console.log(data);
+      return data.rows[0];
+    })
+};
+
 const getFavourites = () => {
   return db.query('SELECT * FROM favourites;')
     .then(data => {
@@ -68,13 +79,23 @@ const getFavourites = () => {
 
 const getFavouritesById = (user_id) => {
   const queryString = `
-  SELECT * FROM favourites WHERE owner_id = $1`
+  SELECT maps.title FROM favourites JOIN maps ON maps.id = map_id WHERE favourites.owner_id = $1`
   const queryParams = [user_id]
   return db.query(queryString, queryParams)
     .then(data => {
-      return data.rows[0];
+      return data.rows;
     });
 };
+
+const checkFavouritesExist = (inputs) => {
+  const queryString = `
+  SELECT * FROM favourites WHERE owner_id = $1 AND map_id = $2`
+  const queryParams = [inputs]
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return (data.rows.length !== 0);
+    });
+}
 
 
 module.exports = {
@@ -85,5 +106,7 @@ module.exports = {
   getMarkers,
   getMarkersById,
   getFavourites,
-  getFavouritesById
+  getFavouritesById,
+  newFavourite,
+  checkFavouritesExist
 };

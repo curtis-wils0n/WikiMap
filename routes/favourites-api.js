@@ -21,8 +21,8 @@ router.get('/', (req, res) => {
     });
 });
 
-router.get('/:favourite_id', (req, res) => {
-  mapQueries.getFavouritesById(req.params.favourite_id)
+router.get('/:user_id', (req, res) => {
+  mapQueries.getFavouritesById(req.params.user_id)
     .then(favourite => {
       res.json({ favourite });
     })

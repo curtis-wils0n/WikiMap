@@ -14,4 +14,28 @@ $(() => {
       }
     });
   });
+
+  //Favourite map loader
+
+  const user_id = $('#favourite-container').attr('value');
+  const renderFavourites = (favourites) => {
+    const container = $('#favourite-container')
+    container.empty();
+    for (const favourite of favourites.favourite) {
+      const $favourite = `<p>${favourite.title}</p>`
+      container.append($favourite);
+    }
+  }
+
+  const loadFavourites = function () {
+    $.ajax({
+      method: 'GET',
+      url: `/api/favourites/${user_id}`
+    })
+    .then ((favourites) => {
+
+      renderFavourites(favourites);
+    })
+  }
+  loadFavourites();
 });

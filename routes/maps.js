@@ -5,6 +5,7 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
+const e = require('express');
 const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/maps');
@@ -30,6 +31,20 @@ router.post('/create', (req, res) => {
   ];
   userQueries.newMap(mapInfo)
     .then ((map) => res.redirect(`/maps/${map.id}`))
+});
+
+//Put favourited maps to specific user
+router.post('/:map_id', (req, res) => {
+  const favouriteInfo =[
+    req.cookies['user_id'],
+    req.params.map_id
+  ];
+  if (userQueries.checkFavouritesExist(favouriteInfo)) {
+    res.status(400).send('Favourite already exists');
+  } else {
+    userQueries.newFavourite(favouriteInfo)
+      .then (() => res.redirect(`/api/favourites`))
+  }
 });
 
 router.get('/:map_id', (req, res) => {
