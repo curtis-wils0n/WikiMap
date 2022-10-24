@@ -5,7 +5,7 @@ $(() => {
     method: 'GET',
     url: `/api/maps/${id}`
   })
-  .done((response) => {
+  .then((response) => {
     const map = response.map;
     const $mapDetails = $('#map-details');
     $mapDetails.empty();
@@ -13,8 +13,17 @@ $(() => {
     $(`<p class="name">`).text('By: ' + map.name).appendTo($mapDetails);
     $(`<p class="created_date">`).text('Created: ' + map.created_date).appendTo($mapDetails);
     $(`<p class="description">`).text('Description: ' + map.description).appendTo($mapDetails);
-    // google maps code
+    // Google Maps render code
+    let gMap = google.maps.Map;
+    const mapOptions = {
+      zoom: map.zoom,
+      center: { lat: map.lat, lng: map.lng },
+    };
+    gMap = new google.maps.Map(
+      document.getElementById('google-map'),
+      mapOptions,
+    );
   });
 });
 
-// code here
+
