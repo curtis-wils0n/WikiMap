@@ -8,7 +8,9 @@ CREATE TABLE locations (
 
   title VARCHAR(255) NOT NULL,
   description TEXT,
-  image_url VARCHAR(255)
+  image_url VARCHAR(255),
 
   -- google api values
+  lat FLOAT,
+  lng FLOAT
 );
