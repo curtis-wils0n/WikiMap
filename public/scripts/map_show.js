@@ -23,6 +23,21 @@ $(() => {
       document.getElementById('google-map'),
       mapOptions,
     );
+    $.ajax({
+      method: 'GET',
+      url: `/api/maps/${id}/locations`,
+    })
+    .then((response) => {
+      const locations = response.locations;
+      for (const location of locations) {
+        const marker = new google.maps.Marker({
+          position: { lat: location.lat, lng: location.lng },
+          title: location.title,
+        });
+        marker.setMap(gMap);
+      }
+    })
+
   });
 
   //Favourite status of map
