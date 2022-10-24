@@ -14,12 +14,16 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/location_show.js"></script>
 </head>
 
 <body>
-  <h1>Map ID: <%= map_id %></h1>
-  <h1>Location ID: <%= location_id %></h1>
+  <div id="map-identifier" value="<%= map_id %>"></div>
+  <div id="location-identifier" value="<%= location_id %>"></div>
+
+  <h1 id="title"></h1>
+  <p id="description"></p>
+  <img src="" alt="" id="image">
 </body>
 
 </html>
