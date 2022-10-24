@@ -27,9 +27,9 @@
   <div id="identifier" value="<%= map_id %>"></div>
   <div id="map-details"></div>
   <div id="google-map"></div>
-  <div id = 'favourite'>
-    Favourite: <i class="fa-solid fa-star iconStarInactive"></i>
-  </div>
+  <form id = 'favourite' action = '/maps' method = 'POST'>
+    Favourite: <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
+  </form>
   <form id = 'newMarkerForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
     <div>
       <fieldset>

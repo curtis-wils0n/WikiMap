@@ -29,7 +29,7 @@ router.post('/create', (req, res) => {
     req.body.lng
   ];
   userQueries.newMap(mapInfo)
-    .then (() => res.redirect('/maps'))
+    .then ((map) => res.redirect(`/maps/${map.id}`))
 });
 
 router.get('/:map_id', (req, res) => {

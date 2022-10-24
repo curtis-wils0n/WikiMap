@@ -22,20 +22,21 @@ const getMapsById = (map_id) => {
 const newMap = (inputs) => {
   const queryString = `
   INSERT INTO maps (owner_id, title, description,created_date, zoom, lat, lng)
-  VALUES ($1,$2,$3,$4,$5,$6,$7);`
+  VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *;`
   return db.query(queryString, inputs)
     .then(data => {
-      return data.rows;
+      console.log(data);
+      return data.rows[0];
     })
 };
 
 const newMarker = (inputs) => {
   const queryString = `
   INSERT INTO locations (creator_id, map_id, title, description, image_url)
-  VALUES ($1,$2,$3,$4,$5);`
+  VALUES ($1,$2,$3,$4,$5) RETURNING *;`
   return db.query(queryString, inputs)
     .then(data => {
-      return data.rows;
+      return data.rows[0];
     })
 };
 
@@ -58,6 +59,23 @@ const getMarkersById = (markers_id) => {
     });
 };
 
+const getFavourites = () => {
+  return db.query('SELECT * FROM favourites;')
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const getFavouritesById = (user_id) => {
+  const queryString = `
+  SELECT * FROM favourites WHERE owner_id = $1`
+  const queryParams = [user_id]
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows[0];
+    });
+};
+
 
 module.exports = {
   getMaps,
@@ -65,5 +83,7 @@ module.exports = {
   newMap,
   newMarker,
   getMarkers,
-  getMarkersById
+  getMarkersById,
+  getFavourites,
+  getFavouritesById
 };

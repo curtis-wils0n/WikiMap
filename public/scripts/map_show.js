@@ -16,15 +16,18 @@ $(() => {
     // google maps code
   });
 
-  const favourite = $('.fa-star').click(() => {
-    if ($('.fa-star').hasClass('iconStarActive')) {
-      $('.fa-star').removeClass('iconStarActive');
-      $('.fa-star').addClass('iconStarInactive');
-    } else {
-      $('.fa-star').removeClass('iconStarInactive');
-      $('.fa-star').addClass("iconStarActive");
-    }
-  })
+  // const favouriteId = $('.fa-star').attr('value');
+  // $('.fa-star').click(() => {
+  //   //Unfavourite a map
+  //   if ($('.fa-star').hasClass('iconStarActive')) {
+  //     $('.fa-star').removeClass('iconStarActive');
+  //     $('.fa-star').addClass('iconStarInactive');
+  //   } else {
+  //     //Favourite a map
+  //     $('.fa-star').removeClass('iconStarInactive');
+  //     $('.fa-star').addClass("iconStarActive");
+  //   }
+  // })
 });
 
 // code here
