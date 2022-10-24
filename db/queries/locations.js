@@ -7,11 +7,11 @@ const getLocations = () => {
     });
 };
 
-const getLocationById = (location_id) => {
+const getLocationById = (map_id, location_id) => {
   const queryString = `
   SELECT * FROM locations
-  WHERE locations.id = $1;`
-  const queryParams = [location_id];
+  WHERE locations.map_id = $1 AND locations.id = $2;`
+  const queryParams = [map_id, location_id];
   return db.query(queryString, queryParams)
     .then(data => {
       return data.rows[0];
