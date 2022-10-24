@@ -1,22 +1,17 @@
 // Client facing scripts here
 $(() => {
-  $('#fetch-users').on('click', () => {
-    $.ajax({
-      method: 'GET',
-      url: '/api/users'
-    })
-    .done((response) => {
-      const $usersList = $('#users');
-      $usersList.empty();
-
-      for(const user of response.users) {
-        $(`<li class="user">`).text(user.name).appendTo($usersList);
-      }
-    });
+  $.ajax({
+    method: 'GET',
+    url: '/api/users'
+  })
+  .done((response) => {
+    const $usersList = $('#users');
+    $usersList.empty();
+    for(const user of response.users) {
+      $(`<li class="user">`).text(user.name).appendTo($usersList);
+    }
   });
-
   //Favourite map loader
-
   const user_id = $('#favourite-container').attr('value');
   const renderFavourites = (favourites) => {
     const container = $('#favourite-container')
