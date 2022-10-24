@@ -10,7 +10,7 @@ $(() => {
     $locationsList.empty();
 
     for (const location of response.locations) {
-      $(`<li class='location'>`).text(location.title).appendTo($locationsList);
+      $(`<li><a href="/maps/${map_id}/locations/${location.id}" class="location">${location.title}</a>`).appendTo($locationsList);
     }
   });
 });
