@@ -14,4 +14,7 @@ const getUser = (userId) => {
     });
 };
 
-module.exports = { getUsers, getUser };
+module.exports = {
+  getUsers,
+  getUser,
+};
