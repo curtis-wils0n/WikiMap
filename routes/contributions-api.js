@@ -1,26 +1,15 @@
 /*
  * All routes for Contributions Data are defined here
- * Since this file is loaded in server.js into api/maps,
- *   these routes are mounted onto /api/maps
+ * Since this file is loaded in server.js into api/contributions,
+ *   these routes are mounted onto /api/contributions
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/maps');
+const mapQueries = require('../db/queries/contributions');
 
-router.get('/', (req, res) => {
-  mapQueries.getContributions()
-    .then(contributions => {
-      res.json({ contributions });
-    })
-    .catch(err => {
-      res
-        .status(500)
-        .json({ error: err.message });
-    });
-});
-
+//Get which map user contributed to
 router.get('/:user_id', (req, res) => {
   mapQueries.getContributionsById(req.params.user_id)
     .then(contributions => {

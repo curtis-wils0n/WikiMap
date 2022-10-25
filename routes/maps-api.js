@@ -10,6 +10,7 @@ const router  = express.Router();
 const mapQueries = require('../db/queries/maps');
 const locationQueries = require('../db/queries/locations');
 
+//Get all map datas
 router.get('/', (req, res) => {
   mapQueries.getMaps()
     .then(maps => {
@@ -22,6 +23,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//Get a specific map data
 router.get('/:map_id', (req, res) => {
   mapQueries.getMapsById(req.params.map_id)
     .then(map => {
@@ -34,6 +36,7 @@ router.get('/:map_id', (req, res) => {
     });
 });
 
+//Get all location datas for a specific map
 router.get('/:map_id/locations/', (req, res) => {
   locationQueries.getLocationsByMapId(req.params.map_id)
     .then(locations => {
@@ -46,8 +49,13 @@ router.get('/:map_id/locations/', (req, res) => {
     });
 });
 
+//Get specific location data for a specific map
 router.get('/:map_id/locations/:location_id', (req, res) => {
-  locationQueries.getLocationById(req.params.map_id, req.params.location_id)
+  const inputs = [
+    req.params.map_id,
+    req.params.location_id
+  ];
+  locationQueries.getLocationById(inputs)
     .then(location => {
       res.json({ location });
     })
@@ -57,6 +65,5 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
         .json({ error: err.message });
     });
 });
-
 
 module.exports = router;
