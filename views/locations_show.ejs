@@ -24,6 +24,20 @@
   <h1 id="title"></h1>
   <p id="description"></p>
   <img src="" alt="" id="image">
+
+  <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations/<%= location_id%>' method = 'POST'>
+    <div>
+      <fieldset>
+        <label for="title">Update location name:</label>
+        <input type="text" name="title" placeholder="Location name" required/>
+        <label for="description">Update location description:</label>
+        <textarea type="text" name="description" placeholder="Location description" required></textarea>
+        <label for="locationImage">Update img url:</label>
+        <input type="url" name="locationImage" placeholder="Image URL link" required/>
+        <button type="submit">Update location</button>
+      </fieldset>
+    </div>
+  </form>
 </body>
 
 </html>

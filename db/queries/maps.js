@@ -72,6 +72,30 @@ const getLocationsByUserId = (inputs) => {
     });
 };
 
+const updateLocation = (inputs) => {
+  const queryString = `
+  UPDATE locations
+  SET title= $2, description = $3, image_url = $4
+  WHERE locations.id = $1 ;`
+  const queryParams = inputs
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const deleteLocation = (inputs) => {
+  const queryString = `
+  DELETE FROM locations
+  WHERE id = $1;`
+  const queryParams = inputs;
+  return db.query(queryString, queryParams)
+    .then(data => {
+      console.log(data);
+      return data.rows[0];
+    })
+};
+
 const newFavourite = (inputs) => {
   const queryString = `
   INSERT INTO favourites (owner_id, map_id)
@@ -129,10 +153,12 @@ module.exports = {
   newLocation,
   getLocations,
   getLocationsById,
+  deleteLocation,
   getFavourites,
   getFavouritesById,
   newFavourite,
   checkFavouritesExist,
   deleteFavourite,
-  getLocationsByUserId
+  getLocationsByUserId,
+  updateLocation
 };

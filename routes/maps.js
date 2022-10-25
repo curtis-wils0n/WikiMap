@@ -88,4 +88,22 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
   res.render('locations_show', templateVars);
 });
 
+router.post('/:map_id/locations/:location_id', (req, res) => {
+  const locationInfo = [
+    req.params.location_id,
+    req.body.title,
+    req.body.description,
+    req.body.locationImage
+  ];
+  userQueries.updateLocation(locationInfo)
+    .then (() => res.redirect(`/maps/${req.params.map_id}/locations/${req.params.location_id}`))
+});
+
+router.post('/:map_id/locations/:location_id/delete', (req, res) => {
+  const deleteLocation = [
+    req.params.location_id,
+  ];
+  userQueries.deleteLocation(deleteLocation)
+    .then (() => res.redirect(`/maps/${req.params.map_id}`))
+});
 module.exports = router;

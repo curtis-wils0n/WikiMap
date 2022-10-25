@@ -75,10 +75,10 @@ $(() => {
       <p>${location.title}</p>
       <p>${location.description}</p>
       <p>${location.image_url}</p>
-      <form method="GET" action="/urls/<%= id %>">
+      <form method="GET" action="/maps/${id}/locations/${location.id}">
         <button type="submit">Edit</button>
       </form>
-      <form method="POST" action="/urls/<%= id %>/delete">
+      <form method="POST" action="/maps/${id}/locations/${location.id}/delete">
         <button type="submit" class="btn btn-primary">Delete</button>
       </form>`;
       container.append($location);
