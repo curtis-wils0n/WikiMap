@@ -11,6 +11,14 @@ const mapQueries = require('../db/queries/maps');
 const locationQueries = require('../db/queries/locations');
 const favouriteQueries = require('../db/queries/favourites');
 
+router.use((req,res,next) => {
+  const userId = req.cookies['user_id'];
+  if (!userId) {
+    res.status(401).send('Cannot access: You must be logged in');
+  }
+  next();
+});
+
 //Direct to list of all maps
 router.get('/', (req, res) => {
   res.render('maps');
