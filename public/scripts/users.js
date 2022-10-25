@@ -1,4 +1,4 @@
-// Client facing scripts here
+//Render user profile page
 $(() => {
   $.ajax({
     method: 'GET',
@@ -11,6 +11,7 @@ $(() => {
       $(`<li class="user">`).text(user.name).appendTo($usersList);
     }
   });
+  
   //Favourite map loader
   const user_id = $('#favourite-container').attr('value');
   const renderFavourites = (favourites) => {

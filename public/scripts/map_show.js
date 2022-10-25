@@ -1,4 +1,4 @@
-// Client facing scripts here
+// Render all information about the map
 $(document).ready(function() {
   const id = $('#identifier').attr('value');
   const userId = $('#favourite').attr('value');
@@ -11,6 +11,8 @@ $(document).ready(function() {
     const $mapDetails = $('#map-details');
     const $mapEditer = $(`#map-editer`);
     $mapDetails.empty();
+
+    //Map details
     let updateFeature = `<form method="GET" action="/maps/${id}/update">
     <button type="submit">Edit</button>
     </form>
@@ -26,6 +28,7 @@ $(document).ready(function() {
     if (map.owner_id == userId){
       $mapEditer.append(updateFeature);
     };
+
     // Google Maps render code
     let gMap = google.maps.Map;
     const mapOptions = {
@@ -37,6 +40,7 @@ $(document).ready(function() {
       mapOptions,
     );
 
+    //Render locations for the specific map
     $.ajax({
       method: 'GET',
       url: `/api/maps/${id}/locations`,
@@ -53,8 +57,7 @@ $(document).ready(function() {
             <p>${location.description}</p>
             <img src="${location.image_url}" style="width: 200px;">
           </div>
-        </div>
-        `
+        </div>`
         const infoWindow = new google.maps.InfoWindow({
           content: contentString,
           ariaLabel: location.title,
@@ -71,7 +74,8 @@ $(document).ready(function() {
           });
         });
       };
-      //User event for placing 1 marker at a time to save
+
+      //User event for placing 1 marker at a time for new markers
       const tempMarker = new google.maps.Marker({
         position: { lat: 0, lng: 0},
       });
@@ -83,6 +87,7 @@ $(document).ready(function() {
         document.getElementById('lat-location').setAttribute('value', lat);
         document.getElementById('lng-location').setAttribute('value', lng);
       })
+
       //Implement search bar for places for google map
       let autocomplete = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
         componentRestrictions: {'country': ['ca']},
@@ -122,7 +127,6 @@ $(document).ready(function() {
       $('.fa-star').addClass("iconStarActive");
     }
   })
-
 
   //Render locations posts placed by logged in user
   const renderLocations = (locations) => {

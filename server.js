@@ -5,7 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-const cookieParser = require('cookie-parser')
+const cookieParser = require('cookie-parser');
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -29,37 +29,44 @@ app.use(
 app.use(express.static('public'));
 
 // Separated Routes for each Resource
-// Note: Feel free to replace the example routes below with your own
+
+//User related routes
 const userApiRoutes = require('./routes/users-api');
 const usersRoutes = require('./routes/users');
 const loginRoutes = require('./routes/login');
 
+//Map related routes
 const mapsApiRoutes = require('./routes/maps-api');
 const mapsRoutes = require('./routes/maps');
 
+//User to map relation Routes
 const locationsApiRoutes = require('./routes/locations-api');
 const favouritesApiRoutes = require('./routes/favourites-api');
 const contributionsApiRoutes = require('./routes/contributions-api');
 
 // Mount all resource routes
-// Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
+
+//User related routes mount
 app.use('/api/users', userApiRoutes);
 app.use('/users', usersRoutes);
 app.use('/login', loginRoutes);
+
+//Map related routes mount
 app.use('/api/maps', mapsApiRoutes);
 app.use('/maps', mapsRoutes);
+
+//User to map relation routes mount
 app.use('/api/locations', locationsApiRoutes);
 app.use('/api/favourites', favouritesApiRoutes);
 app.use('/api/contributions', contributionsApiRoutes);
-// Note: mount other resources here, using the same pattern above
 
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 
 app.get('/', (req, res) => {
-  const templateVars = {user_id: req.cookies['user_id']}
+  const templateVars = {user_id: req.cookies['user_id']};
   res.render('index', templateVars);
 });
 

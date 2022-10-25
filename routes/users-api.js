@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
 
+//Get database of all users
 router.get('/', (req, res) => {
   userQueries.getUsers()
     .then(users => {
