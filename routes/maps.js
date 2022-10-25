@@ -103,7 +103,9 @@ router.post('/:map_id/locations', (req, res) => {
     req.params.map_id,
     req.body.title,
     req.body.description,
-    req.body.locationImage
+    req.body.locationImage,
+    req.body.lat,
+    req.body.lng,
   ];
   userQueries.newLocation(locationInfo)
     .then (() => res.redirect(`/maps/${req.params.map_id}`))
