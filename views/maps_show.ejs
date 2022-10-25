@@ -11,40 +11,61 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/components.css">
+  <link rel="stylesheet" href="/styles/api.css">
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/map_show.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>&libraries=places" async defer></script>
 </head>
 
 <body>
+  <%- include('header') %>
   <div id="identifier" value="<%= map_id %>"></div>
-  <div id="map-details"></div>
-  <div id="google-map"></div>
-  <input id = 'pac-input' placeholder = 'search for place' type = 'text'/>
-  <div id ='map-editer'></div>
-  <form id = 'favourite' action = '/maps/<%= map_id %>' method = 'POST' value = '<%=userId%>''>
-    Favourite: <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
-  </form>
+  <div id="map-show-content">
+    <div id="map-details"></div>
+    <div id="map-container">
+      <input id='pac-input' placeholder='search for place' type='text'/>
+      <div id="google-map"></div>
+
+      <div id="below-map">
+        <div id='map-editer'></div>
+        <form id='favourite' action='/maps/<%= map_id %>' method='POST' value='<%=user_id%>'>
+          Favourite:
+          <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
+        </form>
+
+      </div>
+
+    </div>
+  </div>
   <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
     <div>
       <fieldset>
+        <legend>Add new location:</legend>
         <label for="title">Enter location name:</label>
         <input type="text" name="title" placeholder="Location name" required/>
+        <br>
         <label for="description">Enter location description:</label>
         <textarea type="text" name="description" placeholder="Location description" required></textarea>
+        <br>
         <label for="locationImage">Enter img url:</label>
         <input type="url" name="locationImage" placeholder="Image URL link" required/>
+        <br>
+        <label for="lat">Enter latitude (auto-filled if you click on map or search in search bar):</label>
         <input id="lat-location" name="lat"></input>
+        <br>
+        <label for="lng">Enter longitude:</label>
         <input id="lng-location" name="lng"></input>
+        <br>
         <button type="submit">Place location</button>
       </fieldset>
     </div>
   </form>
+  <h2>List of Markers:</h2>
   <div id="location-container"></div>
   <div id="admin-container"></div>
 </body>

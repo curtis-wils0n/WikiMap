@@ -93,7 +93,7 @@ router.get('/:map_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
     api_key: process.env.MAP_API,
-    userId: req.cookies['user_id']
+    user_id: req.cookies['user_id']
   };
   res.render('maps_show', templateVars);
 });

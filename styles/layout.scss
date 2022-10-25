@@ -45,3 +45,31 @@ footer div {
   border-bottom: 2px dashed black;
   border-top: 2px dashed black;
 }
+
+#map-container#pac-input {
+  border: none;
+  appearance: none;
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 14px;
+  width: 80vw;
+}
+
+#map-show-content {
+  display: flex;
+  flex-direction: row;
+}
+
+#map-details {
+  background: beige;
+  padding: 1.5em;
+  border-radius: 3px;
+}
+
+#below-map {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start
+}
+

@@ -20,7 +20,8 @@ $(document).ready(function() {
     $(`<h1 class="title">`).text(map.title).appendTo($mapDetails);
     $(`<p class="name">`).text('By: ' + map.name).appendTo($mapDetails);
     $(`<p class="created_date">`).text('Created: ' + map.created_date).appendTo($mapDetails);
-    $(`<p class="description">`).text('Description: ' + map.description).appendTo($mapDetails);
+    $(`<hr/>`).appendTo($mapDetails);
+    $(`<p class="description">`).text(map.description).appendTo($mapDetails);
     //Render edit/delete feature if owner of map
     if (map.owner_id == userId){
       $mapEditer.append(updateFeature);
