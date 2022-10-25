@@ -7,11 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/locations');
+const locationQueries = require('../db/queries/locations');
 
 //Get all location datas
 router.get('/', (req, res) => {
-  mapQueries.getLocations()
+  locationQueries.getLocations()
     .then(locations => {
       res.json({ locations });
     })
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 
 //Get a specific location data
 router.get('/:location_id', (req, res) => {
-  mapQueries.getLocationsById(req.params.location_id)
+  locationQueries.getLocationsById(req.params.location_id)
     .then(location => {
       res.json({ location });
     })
@@ -41,7 +41,7 @@ router.get('/maps/:map_id', (req, res) => {
     req.cookies['user_id'],
     req.params.map_id
   ];
-  mapQueries.getLocationsByUserId(inputs)
+  locationQueries.getLocationsByUserId(inputs)
     .then(locations => {
       res.json({ locations });
     })
@@ -58,7 +58,7 @@ router.get('/maps/:map_id/admin', (req, res) => {
     req.cookies['user_id'],
     req.params.map_id
   ];
-  mapQueries.getLocationsByAdmin(inputs)
+  locationQueries.getLocationsByAdmin(inputs)
     .then(locations => {
       res.json({ locations });
     })

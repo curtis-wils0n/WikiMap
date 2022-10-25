@@ -7,11 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/favourites');
+const favouriteQueries = require('../db/queries/favourites');
 
 //Get all the favourite maps
 router.get('/', (req, res) => {
-  mapQueries.getFavourites()
+  favouriteQueries.getFavourites()
     .then(favourites => {
       res.json({ favourites });
     })
@@ -24,7 +24,7 @@ router.get('/', (req, res) => {
 
 //Get maps that a specific user has as favourite
 router.get('/:user_id', (req, res) => {
-  mapQueries.getFavouritesById(req.params.user_id)
+  favouriteQueries.getFavouritesById(req.params.user_id)
     .then(favourites => {
       res.json({ favourites });
     })

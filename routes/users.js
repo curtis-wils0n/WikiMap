@@ -9,6 +9,7 @@ const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
 
+//Access restrictions
 router.use((req,res,next) => {
   const userId = req.cookies['user_id'];
   if (!userId) {
@@ -17,10 +18,12 @@ router.use((req,res,next) => {
   next();
 });
 
+//Direct to list of users
 router.get('/', (req, res) => {
   res.render('users');
 });
 
+//Direct to profile page of user
 router.get('/:id', (req, res) => {
   const userId = req.cookies['user_id'];
   userQueries.getUser(req.params.id)
@@ -28,18 +31,16 @@ router.get('/:id', (req, res) => {
     if (user[0] === undefined) {
       res.status(401).send('Cannot access: User does not exist');
     } else {
-      templateVars = user[0];
+      let templateVars = user[0];
       templateVars.user_id = userId;
       res.render('user', templateVars);
     }
-
   })
   .catch(err => {
     res
       .status(500)
       .json({ error: err.message });
   });
-
 });
 
 module.exports = router;

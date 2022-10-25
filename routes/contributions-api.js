@@ -7,11 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const mapQueries = require('../db/queries/contributions');
+const contributionQueries = require('../db/queries/contributions');
 
 //Get which map user contributed to
 router.get('/:user_id', (req, res) => {
-  mapQueries.getContributionsById(req.params.user_id)
+  contributionQueries.getContributionsById(req.params.user_id)
     .then(contributions => {
       res.json({ contributions });
     })

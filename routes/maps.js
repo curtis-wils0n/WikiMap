@@ -5,15 +5,18 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const e = require('express');
 const express = require('express');
 const router  = express.Router();
-const userQueries = require('../db/queries/maps');
+const mapQueries = require('../db/queries/maps');
+const locationQueries = require('../db/queries/locations');
+const favouriteQueries = require('../db/queries/favourites');
 
+//Direct to list of all maps
 router.get('/', (req, res) => {
   res.render('maps');
 });
 
+//Direct to place to create new map
 router.get('/create', (req, res) => {
   const templateVars = {
     user_id: req.cookies['user_id'],
@@ -22,8 +25,9 @@ router.get('/create', (req, res) => {
   res.render('map_create', templateVars);
 });
 
+//Post request to create new map
 router.post('/create', (req, res) => {
-  const mapInfo =[
+  const mapInfo = [
     req.cookies['user_id'],
     req.body.title,
     req.body.description,
@@ -32,11 +36,11 @@ router.post('/create', (req, res) => {
     req.body.lat,
     req.body.lng
   ];
-  userQueries.newMap(mapInfo)
+  mapQueries.newMap(mapInfo)
     .then ((map) => res.redirect(`/maps/${map.id}`))
 });
 
-//Direct to update map page
+//Direct to update existing map page
 router.get('/:map_id/update', (req, res) => {
   const templateVars =
   {
@@ -47,9 +51,9 @@ router.get('/:map_id/update', (req, res) => {
   res.render('map_update', templateVars);
 });
 
-//Update map post request
+//Post request to update existing map
 router.post('/:map_id/update', (req, res) => {
-  const mapInfo =[
+  const mapInfo = [
     req.params.map_id,
     req.body.title,
     req.body.description,
@@ -57,38 +61,39 @@ router.post('/:map_id/update', (req, res) => {
     req.body.lat,
     req.body.lng
   ];
-  userQueries.updateMap(mapInfo)
-    .then ((map) => res.redirect(`/maps/${req.params.map_id}`))
+  mapQueries.updateMap(mapInfo)
+    .then (() => res.redirect(`/maps/${req.params.map_id}`))
 });
 
-//Delete map post request
+//Post request to delete map
 router.post('/:map_id/delete', (req, res) => {
   const mapId = [
     req.params.map_id,
   ];
-  userQueries.deleteMap(mapId)
+  mapQueries.deleteMap(mapId)
     .then (() => res.redirect(`/maps/`))
 });
 
 //Put favourited maps to specific user
 router.post('/:map_id', (req, res) => {
-  const favouriteInfo =[
+  const favouriteInfo = [
     req.cookies['user_id'],
     req.params.map_id
   ];
-  userQueries.checkFavouritesExist(favouriteInfo)
+  favouriteQueries.checkFavouritesExist(favouriteInfo)
     .then((boolean) => {
-      if(boolean === true) {
-        userQueries.deleteFavourite(favouriteInfo)
+      if (boolean === true) {
+        favouriteQueries.deleteFavourite(favouriteInfo)
         .catch(err => console.log(err.message));
       } else {
-        userQueries.newFavourite(favouriteInfo)
+        favouriteQueries.newFavourite(favouriteInfo)
         .catch(err => console.log(err.message));
       }
     })
     .catch(err => console.log(err.message));
 });
 
+//Direct to specific map page
 router.get('/:map_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
@@ -98,6 +103,7 @@ router.get('/:map_id', (req, res) => {
   res.render('maps_show', templateVars);
 });
 
+//Direct to list of locations marked on a map
 router.get('/:map_id/locations', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
@@ -105,8 +111,9 @@ router.get('/:map_id/locations', (req, res) => {
   res.render('locations', templateVars);
 });
 
+//Post request to put new location marker on map
 router.post('/:map_id/locations', (req, res) => {
-  const locationInfo =[
+  const locationInfo = [
     req.cookies['user_id'],
     req.params.map_id,
     req.body.title,
@@ -116,10 +123,11 @@ router.post('/:map_id/locations', (req, res) => {
     req.body.lng,
   ];
   console.log(req.body.lat);
-  userQueries.newLocation(locationInfo)
+  locationQueries.newLocation(locationInfo)
     .then (() => res.redirect(`/maps/${req.params.map_id}`))
 });
 
+//Direct to specific location page on a map
 router.get('/:map_id/locations/:location_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
@@ -128,6 +136,7 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
   res.render('locations_show', templateVars);
 });
 
+//Post request to update specific location on a map
 router.post('/:map_id/locations/:location_id', (req, res) => {
   const locationInfo = [
     req.params.location_id,
@@ -135,15 +144,17 @@ router.post('/:map_id/locations/:location_id', (req, res) => {
     req.body.description,
     req.body.locationImage
   ];
-  userQueries.updateLocation(locationInfo)
+  locationQueries.updateLocation(locationInfo)
     .then (() => res.redirect(`/maps/${req.params.map_id}/locations/${req.params.location_id}`))
 });
 
+//Post request to delete a location marker on a map
 router.post('/:map_id/locations/:location_id/delete', (req, res) => {
   const deleteLocation = [
     req.params.location_id,
   ];
-  userQueries.deleteLocation(deleteLocation)
+  locationQueries.deleteLocation(deleteLocation)
     .then (() => res.redirect(`/maps/${req.params.map_id}`))
 });
+
 module.exports = router;
