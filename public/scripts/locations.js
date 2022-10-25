@@ -1,4 +1,4 @@
-// Client facing scripts here
+//Render list of locations for a map
 $(() => {
   const map_id = $('#identifier').attr('value');
   $.ajax({
@@ -8,7 +8,6 @@ $(() => {
   .done((response) => {
     const $locationsList = $('#locations');
     $locationsList.empty();
-
     for (const location of response.locations) {
       $(`<li><a href="/maps/${map_id}/locations/${location.id}" class="location">${location.title}</a>`).appendTo($locationsList);
     }

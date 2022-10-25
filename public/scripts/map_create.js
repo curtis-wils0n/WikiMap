@@ -1,5 +1,4 @@
-
-//Get lat and lng of searched places
+//Get lat and lng coords of searched places
 $(document).ready(function() {
   let autocomplete = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
     componentRestrictions: {'country': ['ca']},

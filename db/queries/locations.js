@@ -29,7 +29,7 @@ const getLocationsById = (locations_id) => {
     });
 };
 
-const getLocationById = (inputs) => {
+const getLocationByIdOnMap = (inputs) => {
   const queryString = `
   SELECT * FROM locations
   WHERE locations.map_id = $1 AND locations.id = $2;`
@@ -104,13 +104,12 @@ const deleteLocation = (inputs) => {
     })
 };
 
-
 module.exports = {
   newLocation,
   getLocations,
   getLocationsByMapId,
   getLocationsById,
-  getLocationById,
+  getLocationByIdOnMap,
   getLocationsByAdmin,
   deleteLocation,
   getLocationsByUserId,

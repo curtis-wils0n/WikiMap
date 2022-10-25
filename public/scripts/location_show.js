@@ -1,4 +1,4 @@
-// Client facing scripts here
+//Render locations info placed on a map
 $(() => {
   const map_id = $('#map-identifier').attr('value');
   const location_id = $('#location-identifier').attr('value');

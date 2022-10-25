@@ -1,4 +1,4 @@
-// Client facing scripts here
+// Render list of maps created
 $(() => {
   $.ajax({
     method: 'GET',
