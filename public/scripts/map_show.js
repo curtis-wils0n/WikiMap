@@ -1,5 +1,5 @@
 // Client facing scripts here
-$(() => {
+$(document).ready(function() {
   const id = $('#identifier').attr('value');
   const userId = $('#favourite').attr('value');
   $.ajax({
@@ -70,12 +70,8 @@ $(() => {
         });
       }
       gMap.addListener('click', (data) => {
-        console.log(data.latLng.lat());
-        console.log(data.latLng.lng());
-        document.getElementById('lat-location').value = data.latLng.lat();
-        document.getElementById('lng-location').value = data.latLng.lat();
-        // $('#lat-location').val(data.latLng.lat());
-        // $('#lng-location').val(data.latLng.lng());
+        document.getElementById('lat-location').setAttribute('value',data.latLng.lat());
+        document.getElementById('lng-location').setAttribute('value', data.latLng.lng());
       })
     })
   });
