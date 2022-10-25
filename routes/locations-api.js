@@ -50,4 +50,21 @@ router.get('/maps/:map_id', (req, res) => {
         .json({ error: err.message });
     });
 });
+
+//Filter locations by admin of map
+router.get('/maps/:map_id/admin', (req, res) => {
+  let inputs = [
+    req.cookies['user_id'],
+    req.params.map_id
+  ]
+  mapQueries.getLocationsByAdmin(inputs)
+    .then(locations => {
+      res.json({ locations });
+    })
+    .catch(err => {
+      res
+        .status(500)
+        .json({ error: err.message });
+    });
+});
 module.exports = router;

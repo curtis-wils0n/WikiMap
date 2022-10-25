@@ -152,6 +152,32 @@ $(document).ready(function() {
     })
   }
   loadLocations();
+
+  //Render others marker info to delete if user is admin of map
+  const renderOtherLocations = (locations) => {
+    const container = $(`#admin-container`);
+    container.empty();
+    for (const location of locations) {
+      const $location = `
+      <p>${location.title}</p>
+      <p>${location.description}</p>
+      <img src="${location.image_url}" style="width:50%;"/>
+      <form method="POST" action="/maps/${id}/locations/${location.id}/delete">
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </form>`;
+      container.append($location);
+    }
+  };
+  const loadOtherLocations = () => {
+    $.ajax({
+      method: 'GET',
+      url: `/api/locations/maps/${id}/admin`
+    })
+    .then((response) => {
+      renderOtherLocations(response.locations);
+    })
+  }
+  loadOtherLocations();
 });
 
 

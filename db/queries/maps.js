@@ -96,6 +96,19 @@ const getLocationsByUserId = (inputs) => {
     });
 };
 
+const getLocationsByAdmin = (inputs) => {
+  const queryString = `
+  SELECT locations.* FROM locations
+  JOIN maps ON maps.id = map_id
+  WHERE maps.id = $2
+  AND creator_id <> $1;`
+  const queryParams = inputs
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows;
+    });
+};
+
 const updateLocation = (inputs) => {
   const queryString = `
   UPDATE locations
@@ -194,6 +207,7 @@ module.exports = {
   newLocation,
   getLocations,
   getLocationsById,
+  getLocationsByAdmin,
   deleteLocation,
   getFavourites,
   getFavouritesById,

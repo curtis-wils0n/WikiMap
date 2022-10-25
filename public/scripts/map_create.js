@@ -11,7 +11,6 @@ $(document).ready(function() {
     const place = autocomplete.getPlace();
     let lat = place.geometry.location.lat();
     let lng = place.geometry.location.lng();
-    console.log(lat,lng)
     document.getElementById('lat-location').setAttribute('value', lat);
     document.getElementById('lng-location').setAttribute('value', lng);
   });
