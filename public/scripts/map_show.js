@@ -35,6 +35,7 @@ $(document).ready(function() {
       document.getElementById('google-map'),
       mapOptions,
     );
+
     $.ajax({
       method: 'GET',
       url: `/api/maps/${id}/locations`,
@@ -80,6 +81,17 @@ $(document).ready(function() {
         tempMarker.setMap(gMap);
         document.getElementById('lat-location').setAttribute('value', lat);
         document.getElementById('lng-location').setAttribute('value', lng);
+      })
+      let autocomplete = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
+        componentRestrictions: {'country': ['ca']},
+        fields: ['geometry', 'name'],
+        types: ['establishment']
+      })
+      autocomplete.bindTo('bounds',gMap);
+      autocomplete.addListener('place_changed', function() {
+        const place = autocomplete.getPlace();
+        gMap.fitBounds(place.geometry.viewport);
+        gMap.setZoom(17);
       })
     })
   });
@@ -139,6 +151,17 @@ $(document).ready(function() {
     })
   }
   loadLocations();
+  // let autocomplete = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
+  //   componentRestrictions: {'country': ['ca']},
+  //   fields: ['geometry', 'name'],
+  //   types: ['establishment']
+  // })
+  // autocomplete.bindTo('bounds',gMap);
+  // autocomplete.addListener('place_changed', function() {
+  //   gMap.fitBounds(place.geometry.viewport);
+  //   gMap.setZoom(10);
+  // })
 });
+
 
 

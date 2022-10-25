@@ -20,13 +20,14 @@
 
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/map_show.js"></script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>&libraries=places" async defer></script>
 </head>
 
 <body>
   <div id="identifier" value="<%= map_id %>"></div>
   <div id="map-details"></div>
   <div id="google-map"></div>
+  <input id = 'pac-input' placeholder = 'search for place' type = 'text'/>
   <div id ='map-editer'></div>
   <form id = 'favourite' action = '/maps/<%= map_id %>' method = 'POST' value = '<%=userId%>''>
     Favourite: <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
