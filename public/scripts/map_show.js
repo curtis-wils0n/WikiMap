@@ -68,10 +68,18 @@ $(document).ready(function() {
             map,
           });
         });
-      }
+      };
+      //User event for placing 1 marker at a time to save
+      const tempMarker = new google.maps.Marker({
+        position: { lat: 0, lng: 0},
+      });
       gMap.addListener('click', (data) => {
-        document.getElementById('lat-location').setAttribute('value',data.latLng.lat());
-        document.getElementById('lng-location').setAttribute('value', data.latLng.lng());
+        let lat = data.latLng.lat();
+        let lng = data.latLng.lng();
+        tempMarker.setPosition(data.latLng);
+        tempMarker.setMap(gMap);
+        document.getElementById('lat-location').setAttribute('value', lat);
+        document.getElementById('lng-location').setAttribute('value', lng);
       })
     })
   });
