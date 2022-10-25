@@ -114,7 +114,7 @@ $(() => {
       const $location = `
       <p>${location.title}</p>
       <p>${location.description}</p>
-      <p>${location.image_url}</p>
+      <img src="${location.image_url}" style="width:50%;"/>
       <form method="GET" action="/maps/${id}/locations/${location.id}">
         <button type="submit">Edit</button>
       </form>
