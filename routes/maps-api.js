@@ -55,7 +55,7 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
     req.params.map_id,
     req.params.location_id
   ];
-  locationQueries.getLocationById(inputs)
+  locationQueries.getLocationByIdOnMap(inputs)
     .then(location => {
       res.json({ location });
     })
