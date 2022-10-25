@@ -82,6 +82,7 @@ $(document).ready(function() {
         document.getElementById('lat-location').setAttribute('value', lat);
         document.getElementById('lng-location').setAttribute('value', lng);
       })
+      //Implement search bar for places for google map
       let autocomplete = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
         componentRestrictions: {'country': ['ca']},
         fields: ['geometry', 'name'],
@@ -151,16 +152,6 @@ $(document).ready(function() {
     })
   }
   loadLocations();
-  // let autocomplete = new google.maps.places.Autocomplete(document.getElementById('pac-input'), {
-  //   componentRestrictions: {'country': ['ca']},
-  //   fields: ['geometry', 'name'],
-  //   types: ['establishment']
-  // })
-  // autocomplete.bindTo('bounds',gMap);
-  // autocomplete.addListener('place_changed', function() {
-  //   gMap.fitBounds(place.geometry.viewport);
-  //   gMap.setZoom(10);
-  // })
 });
 
 
