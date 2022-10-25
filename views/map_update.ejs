@@ -19,7 +19,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fuzzy+Bubbles:wght@400;700&display=swap" rel="stylesheet">
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/app.js"></script>
+  <script src="/scripts/map_create.js" async defer></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>&libraries=places" async defer></script>
 </head>
 
 <body>
@@ -33,12 +34,14 @@
           <input type="text" name="title" placeholder="Map name" required/>
           <label for="description">Enter map description:</label>
           <textarea type="text" name="description" placeholder="Map description" required></textarea>
+          <label for="pac-input">Search for city to start:</label>
+          <input id = 'pac-input' name = 'pace-input' placeholder = 'search for place' type = 'text'/>
           <label for="zoom">Enter map zoom level:</label>
           <input type="number" name="zoom" placeholder="Zoom level" required/>
-          <label for="lat">Enter latitude:</label>
-          <input type="number" step="any" name="lat" placeholder="Lat coords" required/>
-          <label for="lng">Enter longitude:</label>
-          <input type="number" step="any" name="lng" placeholder="Lng coords" required/>
+          <label for="lat">Enter latitude or use search above:</label>
+          <input id = 'lat-location' type="number" step="any" name="lat" placeholder="Lat coords" required/>
+          <label for="lng">Enter longitude or use search above:</label>
+          <input id = 'lng-location'type="number" step="any" name="lng" placeholder="Lng coords" required/>
           <button type="submit">Update</button>
         </fieldset>
       </div>

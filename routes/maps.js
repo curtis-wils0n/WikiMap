@@ -38,7 +38,12 @@ router.post('/create', (req, res) => {
 
 //Direct to update map page
 router.get('/:map_id/update', (req, res) => {
-  const templateVars = {user_id: req.cookies['user_id'], map_id: req.params.map_id};
+  const templateVars =
+  {
+    user_id: req.cookies['user_id'],
+    map_id: req.params.map_id,
+    api_key: process.env.MAP_API,
+  };
   res.render('map_update', templateVars);
 });
 
