@@ -69,6 +69,10 @@ $(() => {
           });
         });
       }
+      gMap.addListener('click', (data) => {
+        console.log(data.latLng.lat());
+        console.log(data.latLng.lng());
+      })
     })
 
   });
