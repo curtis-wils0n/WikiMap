@@ -15,7 +15,10 @@ router.get('/', (req, res) => {
 });
 
 router.get('/create', (req, res) => {
-  const templateVars = {user_id: req.cookies['user_id']};
+  const templateVars = {
+    user_id: req.cookies['user_id'],
+    api_key: process.env.MAP_API
+  };
   res.render('map_create', templateVars);
 });
 
