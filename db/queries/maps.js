@@ -101,7 +101,8 @@ const getLocationsByAdmin = (inputs) => {
   SELECT locations.* FROM locations
   JOIN maps ON maps.id = map_id
   WHERE maps.id = $2
-  AND creator_id <> $1;`
+  AND creator_id <> $1
+  AND maps.owner_id = $1;`
   const queryParams = inputs
   return db.query(queryString, queryParams)
     .then(data => {
