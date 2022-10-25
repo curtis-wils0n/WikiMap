@@ -30,7 +30,7 @@ const newMap = (inputs) => {
     })
 };
 
-const newMarker = (inputs) => {
+const newLocation = (inputs) => {
   const queryString = `
   INSERT INTO locations (creator_id, map_id, title, description, image_url)
   VALUES ($1,$2,$3,$4,$5) RETURNING *;`
@@ -40,23 +40,60 @@ const newMarker = (inputs) => {
     })
 };
 
-const getMarkers = () => {
+const getLocations = () => {
   return db.query('SELECT * FROM locations;')
     .then(data => {
       return data.rows;
     });
 };
 
-const getMarkersById = (markers_id) => {
+const getLocationsById = (locations_id) => {
   const queryString = `
-  SELECT markers.*, users.name as name FROM markers
-  JOIN users ON markers.creator_id = users.id
-  WHERE markers.id = $1;`
-  const queryParams = [markers_id]
+  SELECT locations.*, users.name as name FROM locations
+  JOIN users ON locations.creator_id = users.id
+  WHERE locations.id = $1;`
+  const queryParams = [locations_id]
   return db.query(queryString, queryParams)
     .then(data => {
       return data.rows[0];
     });
+};
+
+const getLocationsByUserId = (inputs) => {
+  const queryString = `
+  SELECT locations.* FROM locations
+  JOIN users ON locations.creator_id = users.id
+  WHERE users.id = $1
+  AND map_id = $2;`
+  const queryParams = inputs
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const updateLocation = (inputs) => {
+  const queryString = `
+  UPDATE locations
+  SET title= $2, description = $3, image_url = $4
+  WHERE locations.id = $1 ;`
+  const queryParams = inputs
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const deleteLocation = (inputs) => {
+  const queryString = `
+  DELETE FROM locations
+  WHERE id = $1;`
+  const queryParams = inputs;
+  return db.query(queryString, queryParams)
+    .then(data => {
+      console.log(data);
+      return data.rows[0];
+    })
 };
 
 const newFavourite = (inputs) => {
@@ -113,12 +150,15 @@ module.exports = {
   getMaps,
   getMapsById,
   newMap,
-  newMarker,
-  getMarkers,
-  getMarkersById,
+  newLocation,
+  getLocations,
+  getLocationsById,
+  deleteLocation,
   getFavourites,
   getFavouritesById,
   newFavourite,
   checkFavouritesExist,
-  deleteFavourite
+  deleteFavourite,
+  getLocationsByUserId,
+  updateLocation
 };

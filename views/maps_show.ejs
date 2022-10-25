@@ -30,19 +30,20 @@
   <form id = 'favourite' action = '/maps/<%= map_id %>' method = 'POST' value = '<%=userId%>''>
     Favourite: <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
   </form>
-  <form id = 'newMarkerForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
+  <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
     <div>
       <fieldset>
-        <label for="title">Enter marker name:</label>
-        <input type="text" name="title" placeholder="Marker name" required/>
-        <label for="description">Enter marker description:</label>
-        <textarea type="text" name="description" placeholder="Marker description" required></textarea>
-        <label for="markerImage">Enter img url:</label>
-        <input type="url" name="markerImage" placeholder="Image URL link" required/>
-        <button type="submit">Place marker</button>
+        <label for="title">Enter location name:</label>
+        <input type="text" name="title" placeholder="Location name" required/>
+        <label for="description">Enter location description:</label>
+        <textarea type="text" name="description" placeholder="Location description" required></textarea>
+        <label for="locationImage">Enter img url:</label>
+        <input type="url" name="locationImage" placeholder="Image URL link" required/>
+        <button type="submit">Place location</button>
       </fieldset>
     </div>
   </form>
+  <div id="location-container"></div>
 </body>
 
 </html>

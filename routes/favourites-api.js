@@ -11,8 +11,8 @@ const mapQueries = require('../db/queries/maps');
 
 router.get('/', (req, res) => {
   mapQueries.getFavourites()
-    .then(favourite => {
-      res.json({ favourite });
+    .then(favourites => {
+      res.json({ favourites });
     })
     .catch(err => {
       res
@@ -23,8 +23,8 @@ router.get('/', (req, res) => {
 
 router.get('/:user_id', (req, res) => {
   mapQueries.getFavouritesById(req.params.user_id)
-    .then(favourite => {
-      res.json({ favourite });
+    .then(favourites => {
+      res.json({ favourites });
     })
     .catch(err => {
       res

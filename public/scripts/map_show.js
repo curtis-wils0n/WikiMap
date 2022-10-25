@@ -1,6 +1,7 @@
 // Client facing scripts here
 $(() => {
   const id = $('#identifier').attr('value');
+  const userId = $('#favourite').attr('value');
   $.ajax({
     method: 'GET',
     url: `/api/maps/${id}`
@@ -40,14 +41,13 @@ $(() => {
 
   });
 
-  //Favourite status of map
-  const userId = $('#favourite').attr('value');
+  //Change color of favourite icon based on status
   $.ajax({
     method: 'GET',
     url: `/api/favourites/${userId}`
   })
   .done((response) => {
-    for (const favourite of response.favourite) {
+    for (const favourite of response.favourites) {
       if (favourite.id == id ) {
         $('.fa-star').addClass('iconStarActive')
         break;
@@ -65,6 +65,36 @@ $(() => {
       $('.fa-star').addClass("iconStarActive");
     }
   })
+
+  //Render locations posts placed by logged in user
+  const renderLocations = (locations) => {
+    const container = $(`#location-container`);
+    container.empty();
+    for (const location of locations) {
+      const $location = `
+      <p>${location.title}</p>
+      <p>${location.description}</p>
+      <p>${location.image_url}</p>
+      <form method="GET" action="/maps/${id}/locations/${location.id}">
+        <button type="submit">Edit</button>
+      </form>
+      <form method="POST" action="/maps/${id}/locations/${location.id}/delete">
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </form>`;
+      container.append($location);
+    }
+  };
+
+  const loadLocations = () => {
+    $.ajax({
+      method: 'GET',
+      url: `/api/locations/maps/${id}`
+    })
+    .then((response) => {
+      renderLocations(response.locations);
+    })
+  }
+  loadLocations();
 });
 
 

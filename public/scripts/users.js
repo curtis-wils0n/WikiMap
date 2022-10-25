@@ -16,20 +16,19 @@ $(() => {
   const renderFavourites = (favourites) => {
     const container = $('#favourite-container')
     container.empty();
-    for (const favourite of favourites.favourite) {
+    for (const favourite of favourites) {
       const $favourite = `<p>${favourite.title}</p>`
       container.append($favourite);
     }
-  }
+  };
 
-  const loadFavourites = function () {
+  const loadFavourites = () => {
     $.ajax({
       method: 'GET',
       url: `/api/favourites/${user_id}`
     })
-    .then ((favourites) => {
-
-      renderFavourites(favourites);
+    .then ((response) => {
+      renderFavourites(response.favourites);
     })
   }
   loadFavourites();
