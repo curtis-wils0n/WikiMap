@@ -30,6 +30,30 @@ const newMap = (inputs) => {
     })
 };
 
+const updateMap = (inputs) => {
+  const queryString = `
+  UPDATE maps
+  SET title= $2, description = $3, zoom = $4, lat = $5, lng = $6
+  WHERE maps.id = $1 ;`
+  const queryParams = inputs
+  return db.query(queryString, queryParams)
+    .then(data => {
+      return data.rows;
+    });
+};
+
+const deleteMap = (inputs) => {
+  const queryString = `
+  DELETE FROM maps
+  WHERE id = $1;`
+  const queryParams = inputs;
+  return db.query(queryString, queryParams)
+    .then(data => {
+      console.log(data);
+      return data.rows[0];
+    })
+};
+
 const newLocation = (inputs) => {
   const queryString = `
   INSERT INTO locations (creator_id, map_id, title, description, image_url)
@@ -150,6 +174,8 @@ module.exports = {
   getMaps,
   getMapsById,
   newMap,
+  updateMap,
+  deleteMap,
   newLocation,
   getLocations,
   getLocationsById,

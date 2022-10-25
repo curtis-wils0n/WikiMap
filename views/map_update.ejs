@@ -25,8 +25,8 @@
 <body>
   <%- include('header') %>
   <main class = 'container'>
-    <h3>Create a new map</h3>
-    <form id = 'newMapForm' action = '/maps/create' method = 'POST'>
+    <h3>Update map</h3>
+    <form id = 'newMapForm' action = '/maps/<%=map_id%>/update' method = 'POST'>
       <div>
         <fieldset>
           <label for="title">Enter map name:</label>
@@ -39,7 +39,7 @@
           <input type="number" step="any" name="lat" placeholder="Lat coords" required/>
           <label for="lng">Enter longitude:</label>
           <input type="number" step="any" name="lng" placeholder="Lng coords" required/>
-          <button type="submit">Create</button>
+          <button type="submit">Update</button>
         </fieldset>
       </div>
     </form>

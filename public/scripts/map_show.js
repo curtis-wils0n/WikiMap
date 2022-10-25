@@ -9,11 +9,22 @@ $(() => {
   .then((response) => {
     const map = response.map;
     const $mapDetails = $('#map-details');
+    const $mapEditer = $(`#map-editer`);
     $mapDetails.empty();
+    let updateFeature = `<form method="GET" action="/maps/${id}/update">
+    <button type="submit">Edit</button>
+    </form>
+    <form method="POST" action="/maps/${id}/delete">
+      <button type="submit" class="btn btn-primary">Delete</button>
+    </form>`;
     $(`<h1 class="title">`).text(map.title).appendTo($mapDetails);
     $(`<p class="name">`).text('By: ' + map.name).appendTo($mapDetails);
     $(`<p class="created_date">`).text('Created: ' + map.created_date).appendTo($mapDetails);
     $(`<p class="description">`).text('Description: ' + map.description).appendTo($mapDetails);
+    //Render edit/delete feature if owner of map
+    if (map.owner_id == userId){
+      $mapEditer.append(updateFeature);
+    };
     // Google Maps render code
     let gMap = google.maps.Map;
     const mapOptions = {
