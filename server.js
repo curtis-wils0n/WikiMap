@@ -39,6 +39,7 @@ const mapsRoutes = require('./routes/maps');
 
 const locationsApiRoutes = require('./routes/locations-api');
 const favouritesApiRoutes = require('./routes/favourites-api');
+const contributionsApiRoutes = require('./routes/contributions-api');
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -50,6 +51,7 @@ app.use('/api/maps', mapsApiRoutes);
 app.use('/maps', mapsRoutes);
 app.use('/api/locations', locationsApiRoutes);
 app.use('/api/favourites', favouritesApiRoutes);
+app.use('/api/contributions', contributionsApiRoutes);
 // Note: mount other resources here, using the same pattern above
 
 // Home page

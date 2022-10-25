@@ -32,4 +32,25 @@ $(() => {
     })
   }
   loadFavourites();
+
+  //Contribution map loader
+  const renderContributions = (contributions) => {
+    const container = $('#contribution-container')
+    container.empty();
+    for (const contribution of contributions) {
+      const $contribution = `<p>${contribution.title}</p>`
+      container.append($contribution);
+    }
+  };
+
+  const loadContributions = () => {
+    $.ajax({
+      method: 'GET',
+      url: `/api/contributions/${user_id}`
+    })
+    .then ((response) => {
+      renderContributions(response.contributions);
+    })
+  }
+  loadContributions();
 });
