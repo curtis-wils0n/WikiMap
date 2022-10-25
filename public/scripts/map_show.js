@@ -42,11 +42,32 @@ $(() => {
     .then((response) => {
       const locations = response.locations;
       for (const location of locations) {
+        const contentString = `
+        <div id="content">
+          <div id="siteNotice">
+          </div>
+          <h1 id="firstHeading" class="firstHeading">${location.title}</h1>
+          <div id="bodyContent">
+            <p>${location.description}</p>
+            <img src="${location.image_url}" style="width: 200px;">
+          </div>
+        </div>
+        `
+        const infoWindow = new google.maps.InfoWindow({
+          content: contentString,
+          ariaLabel: "Uluru",
+        });
         const marker = new google.maps.Marker({
           position: { lat: location.lat, lng: location.lng },
           title: location.title,
         });
         marker.setMap(gMap);
+        marker.addListener('click', () => {
+          infoWindow.open({
+            anchor: marker,
+            map,
+          });
+        });
       }
     })
 
