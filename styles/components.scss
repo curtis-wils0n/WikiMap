@@ -1,0 +1,33 @@
+body {
+  color: black;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.header-title {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+}
+
+.header-item {
+  text-decoration: none;
+  color: white;
+}
+
+.fa-map-pin {
+  margin: 10px;
+}
+
+.map-display {
+  list-style-position: outside;
+  margin-right: 20px;
+  padding-right: 20px;
+}
+
+.container p {
+  font-style: italic;
+}
+
+.container img {
+  width: 20%
+}

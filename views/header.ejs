@@ -2,8 +2,6 @@
 <html lang="en">
 
 <head>
-  <title>Header</title>
-
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
@@ -11,6 +9,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/components.css">
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,13 +20,13 @@
 
 <body>
   <header>
-    <nav class = "nav-title">
-      <a href="/">WikiMap</a>
-    </nav>
-    <span class ="nav-ref">
-      <a class="nav-item nav-link" href="/users/<%=user_id%>"><i class="fa-solid fa-map-pin"></i>  My Profile</a>
-      <a class="nav-item nav-link" href="/maps/create"><i class="fa-solid fa-map-pin"></i>  Create Map</a>
-      <a class="nav-item nav-link" href="/maps"><i class="fa-solid fa-map-pin"></i>  Map List</a>
+    <div>
+      <a href="/" class="header-title">WikiMap</a>
+    </div>
+    <span class="header-ref">
+      <a class="header-item header-link" href="/users/<%=user_id%>"><i class="fa-solid fa-map-pin"></i>My Profile</a>
+      <a class="header-item header-link" href="/maps/create"><i class="fa-solid fa-map-pin"></i>Create Map</a>
+      <a class="header-item header-link" href="/maps"><i class="fa-solid fa-map-pin"></i>Map List</a>
     </span>
   </header>
 </body>
