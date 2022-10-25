@@ -55,7 +55,7 @@ $(() => {
         `
         const infoWindow = new google.maps.InfoWindow({
           content: contentString,
-          ariaLabel: "Uluru",
+          ariaLabel: location.title,
         });
         const marker = new google.maps.Marker({
           position: { lat: location.lat, lng: location.lng },
