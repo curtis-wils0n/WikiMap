@@ -8,8 +8,37 @@ main {
   align-items: center;
 }
 
-ul {
+#mapListContainer {
+  display: flex;
+  max-width: 75%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 1%;
+  border-radius: 10px;
+  border: none;
+  background-color: lightgoldenrodyellow;
+  border: 2px solid black;
+}
+
+#maps {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  padding: 0;
+  margin: 1%;
   list-style-type: none;
+}
+
+#maps li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  margin: 1%
 }
 
 ul a {
@@ -20,7 +49,12 @@ ul a {
 }
 
 ul a:hover {
-  color: white;
+  color: lightblue;
   text-shadow: 2px 2px 0 black;
 }
 
+#map_info {
+  font-style: italic;
+  color: black;
+  word-break: break-word;
+}
