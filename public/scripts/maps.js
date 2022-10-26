@@ -8,7 +8,7 @@ $(() => {
     const $mapsList = $('#maps');
     $mapsList.empty();
     for(const map of response.maps) {
-      $(`<li><a href="/maps/${map.id}" class="map">${map.title}</a> <i>by ${map.name}</i></li>`).appendTo($mapsList);
+      $(`<li><a href="/maps/${map.id}" class="map">${map.title}</a> by <i>${map.name}</i> — "${map.description}"</li>`).appendTo($mapsList);
     }
   });
 });

@@ -1,0 +1,26 @@
+body {
+  background-color: lightblue;
+}
+
+main {
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+}
+
+ul a {
+  text-decoration: none;
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+}
+
+ul a:hover {
+  color: white;
+  text-shadow: 2px 2px 0 black;
+}
+
