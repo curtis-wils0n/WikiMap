@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/api.css">
+  <link rel="stylesheet" href="/styles/map_show.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,20 +26,19 @@
   <%- include('header') %>
   <div id="identifier" value="<%= map_id %>"></div>
   <div id="map-show-content">
-    <div id="map-details"></div>
-    <div id="map-container">
-      <input id='pac-input' placeholder='search for place' type='text'/>
-      <div id="google-map" value = '<%= map_design %>'></div>
-
-      <div id="below-map">
-        <div id='map-editer'></div>
+    <div id="beside-map">
+      <div id="map-details"></div>
+      <div id="map-buttons">
+        <div id='map-editor'></div>
         <form id='favourite' action='/maps/<%= map_id %>' method='POST' value='<%=user_id%>'>
           Favourite:
           <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
         </form>
-
       </div>
-
+    </div>
+    <div id="map-container">
+      <div id="google-map" value = '<%= map_design %>'></div>
+      <input id='pac-input' placeholder='search for place' type='text'/>
     </div>
   </div>
   <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
