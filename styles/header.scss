@@ -21,12 +21,18 @@ header {
   padding: 31px 10px 31px 10px;
   border-left: 2px solid black;
 }
+
 .header-item:hover {
   align-items: stretch;
   text-decoration: dotted;
   background-color: lightgreen;
 }
 
-.fa-map-pin {
-  margin: 10px;
+#my-profile {
+  background-color: black;
+  color: white;
+}
+#my-profile:hover {
+  background-color: lightpink;
+  color: black;
 }
