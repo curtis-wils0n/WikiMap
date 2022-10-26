@@ -1,7 +1,24 @@
-.background-blue {
-  background-color: lightblue;
+hr {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 100%;
 }
-.container {
+
+.content {
   flex-direction: column;
   align-items: center;
+}
+
+.welcome {
+  background-color: lightblue;
+  flex-direction: column;
+  align-items: center;
+}
+
+#landing-page-image {
+  display: flex;
+  width: 90vw;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 30px;
 }
