@@ -24,7 +24,8 @@ header {
 }
 
 .header-item:hover {
-  align-items: stretch;
+  align-items: center;
+  text-align: center;
   text-decoration: dotted;
   background-color: lightgreen;
 }
