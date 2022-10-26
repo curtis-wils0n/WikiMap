@@ -16,6 +16,11 @@ header {
   font-size: 30px;
 }
 
+.header-title:hover {
+  color: lightblue;
+  text-shadow: 2px 2px 0 black;
+}
+
 .header-item {
   text-decoration: none;
   color: black;
