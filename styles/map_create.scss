@@ -1,0 +1,57 @@
+body {
+  background-color: lightblue;
+}
+
+main {
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+label {
+  font-weight: bold;
+  color: black;
+  font-size: 20px;
+  margin: 1%;
+  text-align: center;
+}
+
+input {
+  width:75%;
+  border-radius: 10px;
+  margin-top: 4px;
+  text-align: center;
+  border-color: black;
+}
+
+textarea {
+  width:75%;
+  border-radius: 10px;
+  margin-top: 4px;
+  text-align: center;
+  border-width: 2px;
+  border-color: black;
+}
+
+form {
+  margin: 1em;
+  border-radius: 10px;
+  border: none;
+  background-color: lightcyan;
+}
+
+button {
+  background-color: black;
+  color: white;
+  padding: 3%;
+  border-radius: 10px;
+  margin:10px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: lightgreen;
+  color: black;
+  cursor: pointer;
+}
+

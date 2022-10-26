@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/map_create.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,10 +24,10 @@
 <body>
   <%- include('header') %>
   <main class = 'container'>
+    <h1>Create a new map</h1>
+    <hr>
     <form id = 'newMapForm' action = '/maps/create' method = 'POST'>
       <div>
-        <fieldset>
-          <legend>Create a new map</legend>
           <label for="title">Enter map name:</label>
           <input type="text" name="title" placeholder="Map name" required/>
           <br>
@@ -34,10 +35,10 @@
           <textarea type="text" name="description" placeholder="Map description" required></textarea>
           <br>
           <label for="pac-input">Search for city to start:</label>
-          <input id = 'pac-input' name = 'pace-input' placeholder = 'search for place' type = 'text'/>
+          <input id = 'pac-input' name = 'pace-input' placeholder = 'Search for place' type = 'text'/>
           <br>
           <label for="zoom">Enter map zoom level:</label>
-          <input type="number" name="zoom" placeholder="Zoom level" required/>
+          <input type="number" name="zoom" placeholder="Zoom level" value = 15 required/>
           <br>
           <label for="lat">Enter latitude or use search above:</label>
           <input id = 'lat-location' type="number" step="any" name="lat" placeholder="Lat coords" required/>
@@ -46,7 +47,6 @@
           <input id = 'lng-location'type="number" step="any" name="lng" placeholder="Lng coords" required/>
           <br>
           <button type="submit">Create</button>
-        </fieldset>
       </div>
     </form>
   </main>
