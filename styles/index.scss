@@ -15,9 +15,10 @@ hr {
   align-items: center;
 }
 
-#landing-page-image {
+.landing-page-image {
   display: flex;
   width: 90vw;
+  max-width: 1200px;
   border: 2px solid black;
   border-radius: 10px;
   margin-bottom: 30px;
