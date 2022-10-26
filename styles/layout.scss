@@ -8,50 +8,9 @@ html {
   background-color: lightblue;
 }
 
-footer div {
-  width: 100%;
-  height: 80px;
-  background-color: rgb(34, 139, 34);
-}
-
 hr {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   width: 100%;
   margin: 0;
 }
-
-.map-display {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 2;
-  background-color: beige;
-}
-
-#map-container#pac-input {
-  border: none;
-  appearance: none;
-  padding: 12px;
-  border-radius: 3px;
-  font-size: 14px;
-  width: 80vw;
-}
-
-#map-show-content {
-  display: flex;
-  flex-direction: row;
-}
-
-#map-details {
-  background: beige;
-  padding: 1.5em;
-  border-radius: 3px;
-}
-
-#below-map {
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start
-}
-
