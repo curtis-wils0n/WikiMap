@@ -41,10 +41,11 @@
       <input id='pac-input' placeholder='search for place' type='text'/>
     </div>
   </div>
-  <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
-    <div>
-      <fieldset>
-        <legend>Add new location:</legend>
+  <hr>
+  <div id="new-location">
+    <h2>Add a new location</h2>
+    <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
+      <div>
         <label for="title">Enter location name:</label>
         <input type="text" name="title" placeholder="Location name" required/>
         <br>
@@ -60,12 +61,16 @@
         <label for="lng">Enter longitude:</label>
         <input id="lng-location" name="lng"></input>
         <br>
-        <button type="submit">Place location</button>
-      </fieldset>
-    </div>
-  </form>
-  <h2><a href="/maps/<%= map_id %>/locations">List of Locations</a></h2>
-  <div id="location-container"></div>
-  <div id="admin-container"></div>
+        <button type="submit" id="place-location-button">Place location</button>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <div id="list-locations">
+    <h2 id="map-show-list"><a href="/maps/<%= map_id %>/locations">List of Locations</a></h2>
+    <div id="location-container"></div>
+    <div id="admin-container"></div>
+  </div>
+
 </body>
 </html>

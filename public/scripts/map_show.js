@@ -147,14 +147,14 @@ $(document).ready(function() {
     container.empty();
     for (const location of locations) {
       const $location = `
-      <p>${location.title}</p>
-      <p>${location.description}</p>
-      <img src="${location.image_url}" style="width:50%;"/>
+      <h3>${location.title}</h3>
+      <p><i>${location.description}</i></p>
+      <img src="${location.image_url}" id="location-preview"/>
       <form method="GET" action="/maps/${id}/locations/${location.id}">
-        <button type="submit">Edit</button>
+        <button type="submit" id="edit-button">Edit</button>
       </form>
       <form method="POST" action="/maps/${id}/locations/${location.id}/delete">
-        <button type="submit" class="btn btn-primary">Delete</button>
+        <button type="submit" class="btn btn-primary" id="delete-button">Delete</button>
       </form>`;
       container.append($location);
     }
