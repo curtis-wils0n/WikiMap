@@ -1,0 +1,64 @@
+#map-show-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-bottom: 1.5em;
+}
+
+#beside-map {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#map-details {
+  padding: 1.5em;
+}
+
+#map-buttons {
+  padding: 0 1.5em 0 1.5em;
+}
+
+#map-container {
+  display: flex;
+  flex-direction: column;
+}
+
+#pac-input {
+  border: none;
+  appearance: none;
+  padding: 12px;
+  font-size: 14px;
+  width: 80vw;
+  border-radius: 10px;
+  border: 2px solid black;
+}
+
+#google-map {
+  border: 2px solid black;
+  border-radius: 10px;
+  width: 80vw;
+  height: 80vh;
+  margin: 10px 0 10px 0;
+}
+
+button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  width: 100%;
+  border: 2px solid black;
+}
+
+#edit-button {
+  margin-bottom: 10px;
+}
+
+button:hover {
+  box-shadow: 2px 2px;
+}
+
+button:active {
+  color: white;
+  background-color: black;
+}
