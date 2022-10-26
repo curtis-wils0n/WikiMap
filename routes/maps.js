@@ -31,7 +31,8 @@ router.get('/', (req, res) => {
 router.get('/create', (req, res) => {
   const templateVars = {
     user_id: req.cookies['user_id'],
-    api_key: process.env.MAP_API
+    api_key: process.env.MAP_API,
+    map_design: process.env.MAP_DESIGN
   };
   res.render('map_create', templateVars);
 });
@@ -58,6 +59,7 @@ router.get('/:map_id/update', (req, res) => {
     user_id: req.cookies['user_id'],
     map_id: req.params.map_id,
     api_key: process.env.MAP_API,
+    map_design: process.env.MAP_DESIGN
   };
   res.render('map_update', templateVars);
 });
@@ -109,6 +111,7 @@ router.get('/:map_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
     api_key: process.env.MAP_API,
+    map_design: process.env.MAP_DESIGN,
     user_id: req.cookies['user_id']
   };
   res.render('maps_show', templateVars);

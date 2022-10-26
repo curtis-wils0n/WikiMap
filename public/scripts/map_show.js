@@ -1,7 +1,15 @@
 // Render all information about the map
+
+
 $(document).ready(function() {
   const id = $('#identifier').attr('value');
   const userId = $('#favourite').attr('value');
+  const mapDesign = $('#google-map').attr('value');
+  //Image ref for google markers
+  var image = {
+    url: "https://img.icons8.com/emoji/48/000000/round-pushpin-emoji.png", // url
+    scaledSize: new google.maps.Size(40, 40), // size
+  };
   $.ajax({
     method: 'GET',
     url: `/api/maps/${id}`
@@ -34,6 +42,7 @@ $(document).ready(function() {
     const mapOptions = {
       zoom: map.zoom,
       center: { lat: map.lat, lng: map.lng },
+      mapId: mapDesign
     };
     gMap = new google.maps.Map(
       document.getElementById('google-map'),
@@ -65,7 +74,9 @@ $(document).ready(function() {
         const marker = new google.maps.Marker({
           position: { lat: location.lat, lng: location.lng },
           title: location.title,
+          icon: image
         });
+
         marker.setMap(gMap);
         marker.addListener('click', () => {
           infoWindow.open({
@@ -78,6 +89,7 @@ $(document).ready(function() {
       //User event for placing 1 marker at a time for new markers
       const tempMarker = new google.maps.Marker({
         position: { lat: 0, lng: 0},
+        icon: image,
       });
       gMap.addListener('click', (data) => {
         let lat = data.latLng.lat();
@@ -98,7 +110,7 @@ $(document).ready(function() {
       autocomplete.addListener('place_changed', function() {
         const place = autocomplete.getPlace();
         gMap.fitBounds(place.geometry.viewport);
-        gMap.setZoom(17);
+        gMap.setZoom(19);
       })
     })
   });
