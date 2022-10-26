@@ -5,11 +5,6 @@ $(document).ready(function() {
   const id = $('#identifier').attr('value');
   const userId = $('#favourite').attr('value');
   const mapDesign = $('#google-map').attr('value');
-  //Image ref for google markers
-  var image = {
-    url: "https://img.icons8.com/emoji/48/000000/round-pushpin-emoji.png", // url
-    scaledSize: new google.maps.Size(40, 40), // size
-  };
   $.ajax({
     method: 'GET',
     url: `/api/maps/${id}`
@@ -66,7 +61,13 @@ $(document).ready(function() {
             <p>${location.description}</p>
             <img src="${location.image_url}" style="width: 200px;">
           </div>
-        </div>`
+        </div>`;
+
+        //Image data for google markers
+        var image = {
+          url: "https://img.icons8.com/emoji/48/000000/round-pushpin-emoji.png", // url
+          scaledSize: new google.maps.Size(40, 40), // size
+        };
         const infoWindow = new google.maps.InfoWindow({
           content: contentString,
           ariaLabel: location.title,
