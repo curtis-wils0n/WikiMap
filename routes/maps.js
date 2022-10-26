@@ -193,7 +193,7 @@ router.post('/:map_id/locations/:location_id/delete', (req, res) => {
   ];
   locationQueries.getLocationsById(deleteLocation[0])
   .then ((location) => {
-    if (location.creator_id == req.cookies['user_id']) {
+    if (location.creator_id == req.cookies['user_id'] || location.map_owner == req.cookies['user_id']) {
       locationQueries.deleteLocation(deleteLocation)
       .then (() => res.redirect(`/maps/${req.params.map_id}`))
     } else {
