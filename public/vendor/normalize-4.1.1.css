@@ -327,6 +327,10 @@ button:-moz-focusring,
   outline: 1px dotted ButtonText;
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 /**
  * Change the border, margin, and padding in all browsers (opinionated).
  */

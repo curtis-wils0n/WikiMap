@@ -44,6 +44,8 @@ textarea {
 
 form {
   margin: 1em;
+  max-width: 75%;
+  min-width: 30%;
   border-radius: 10px;
   border: none;
   background-color: lightgoldenrodyellow;
@@ -62,6 +64,5 @@ button {
 button:hover {
   background-color: lightgreen;
   color: black;
-  cursor: pointer;
   box-shadow: 2px 2px;
 }
