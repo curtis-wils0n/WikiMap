@@ -51,6 +51,11 @@ $(document).ready(function() {
     })
     .then((response) => {
       const locations = response.locations;
+      //Image data for google markers
+      var image = {
+        url: "https://img.icons8.com/emoji/48/000000/round-pushpin-emoji.png", // url
+        scaledSize: new google.maps.Size(40, 40), // size
+      }
       for (const location of locations) {
         const contentString = `
         <div id="content">
@@ -63,11 +68,6 @@ $(document).ready(function() {
           </div>
         </div>`;
 
-        //Image data for google markers
-        var image = {
-          url: "https://img.icons8.com/emoji/48/000000/round-pushpin-emoji.png", // url
-          scaledSize: new google.maps.Size(40, 40), // size
-        };
         const infoWindow = new google.maps.InfoWindow({
           content: contentString,
           ariaLabel: location.title,
