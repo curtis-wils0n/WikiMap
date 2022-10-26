@@ -12,15 +12,15 @@ $(document).ready(function() {
   .then((response) => {
     const map = response.map;
     const $mapDetails = $('#map-details');
-    const $mapEditer = $(`#map-editer`);
+    const $mapEditor = $(`#map-editor`);
     $mapDetails.empty();
 
     //Map details
     let updateFeature = `<form method="GET" action="/maps/${id}/update">
-    <button type="submit">Edit</button>
+    <button type="submit" id="edit-button">Edit</button>
     </form>
     <form method="POST" action="/maps/${id}/delete">
-      <button type="submit" class="btn btn-primary">Delete</button>
+      <button type="submit" class="btn btn-primary" id="delete-button">Delete</button>
     </form>`;
     $(`<h1 class="title">`).text(map.title).appendTo($mapDetails);
     $(`<p class="name">`).text('By: ' + map.name).appendTo($mapDetails);
@@ -29,7 +29,7 @@ $(document).ready(function() {
     $(`<p class="description">`).text(map.description).appendTo($mapDetails);
     //Render edit/delete feature if owner of map
     if (map.owner_id == userId){
-      $mapEditer.append(updateFeature);
+      $mapEditor.append(updateFeature);
     };
 
     // Google Maps render code
