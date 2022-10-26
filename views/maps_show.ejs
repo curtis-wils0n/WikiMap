@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Map: <%= map_id %></title>
+  <title>Map | WikiMap</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -65,8 +65,9 @@
       </fieldset>
     </div>
   </form>
-  <h2>List of Markers:</h2>
+  <h2><a href="/maps/<%= map_id %>/locations">List of Locations</a></h2>
   <div id="location-container"></div>
   <div id="admin-container"></div>
+  <%- include('footer') %>
 </body>
 </html>

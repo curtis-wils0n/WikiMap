@@ -21,7 +21,10 @@ router.use((req,res,next) => {
 
 //Direct to list of all maps
 router.get('/', (req, res) => {
-  res.render('maps');
+  const templateVars = {
+    user_id: req.cookies['user_id'],
+  }
+  res.render('maps' ,templateVars);
 });
 
 //Direct to place to create new map
@@ -115,6 +118,7 @@ router.get('/:map_id', (req, res) => {
 router.get('/:map_id/locations', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
+    user_id: req.cookies['user_id']
   }
   res.render('locations', templateVars);
 });
@@ -140,6 +144,7 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
   const templateVars = {
     map_id: req.params.map_id,
     location_id: req.params.location_id,
+    user_id: req.cookies['user_id'],
   };
   res.render('locations_show', templateVars);
 });

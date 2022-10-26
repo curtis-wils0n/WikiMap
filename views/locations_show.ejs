@@ -19,6 +19,7 @@
 </head>
 
 <body>
+  <%- include('header') %>
   <div id="map-identifier" value="<%= map_id %>"></div>
   <div id="location-identifier" value="<%= location_id %>"></div>
 
@@ -29,16 +30,21 @@
   <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations/<%= location_id%>' method = 'POST'>
     <div>
       <fieldset>
-        <label for="title">Update location name:</label>
+        <legend>Update location</legend>
+        <label for="title">Location name:</label>
         <input type="text" name="title" placeholder="Location name" required/>
-        <label for="description">Update location description:</label>
+        <br>
+        <label for="description">Location description:</label>
         <textarea type="text" name="description" placeholder="Location description" required></textarea>
-        <label for="locationImage">Update img url:</label>
+        <br>
+        <label for="locationImage">Image url:</label>
         <input type="url" name="locationImage" placeholder="Image URL link" required/>
-        <button type="submit">Update location</button>
+        <br>
+        <button type="submit">Update</button>
       </fieldset>
     </div>
   </form>
+  <%- include('footer') %>
 </body>
 
 </html>

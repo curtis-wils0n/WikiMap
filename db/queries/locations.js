@@ -42,7 +42,7 @@ const getLocationByIdOnMap = (inputs) => {
 
 const getLocationsByMapId = (map_id) => {
   const queryString = `
-  SELECT locations.* FROM locations
+  SELECT locations.*, maps.title as map_title FROM locations
   JOIN maps ON maps.id = locations.map_id
   WHERE locations.map_id = $1
   `;

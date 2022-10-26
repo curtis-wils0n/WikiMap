@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Locations</title>
+  <title>Locations | WikiMap</title>
 
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
@@ -19,8 +19,11 @@
 </head>
 
 <body>
+  <%- include('header') %>
   <div id="identifier" value="<%= map_id %>"></div>
+  <h1 id="map-list-title"></h1>
   <ul id="locations"></ul>
+  <%- include('footer') %>
 </body>
 
 </html>

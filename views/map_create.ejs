@@ -23,27 +23,34 @@
 <body>
   <%- include('header') %>
   <main class = 'container'>
-    <h3>Create a new map</h3>
     <form id = 'newMapForm' action = '/maps/create' method = 'POST'>
       <div>
         <fieldset>
+          <legend>Create a new map</legend>
           <label for="title">Enter map name:</label>
           <input type="text" name="title" placeholder="Map name" required/>
+          <br>
           <label for="description">Enter map description:</label>
           <textarea type="text" name="description" placeholder="Map description" required></textarea>
+          <br>
           <label for="pac-input">Search for city to start:</label>
           <input id = 'pac-input' name = 'pace-input' placeholder = 'search for place' type = 'text'/>
+          <br>
           <label for="zoom">Enter map zoom level:</label>
           <input type="number" name="zoom" placeholder="Zoom level" required/>
+          <br>
           <label for="lat">Enter latitude or use search above:</label>
           <input id = 'lat-location' type="number" step="any" name="lat" placeholder="Lat coords" required/>
+          <br>
           <label for="lng">Enter longitude or use search above:</label>
           <input id = 'lng-location'type="number" step="any" name="lng" placeholder="Lng coords" required/>
+          <br>
           <button type="submit">Create</button>
         </fieldset>
       </div>
     </form>
   </main>
+  <%- include('footer') %>
 </body>
 
 </html>

@@ -20,7 +20,10 @@ router.use((req,res,next) => {
 
 //Direct to list of users
 router.get('/', (req, res) => {
-  res.render('users');
+  const templateVars = {
+    user_id: req.cookies['user_id'],
+  }
+  res.render('users', templateVars);
 });
 
 //Direct to profile page of user
