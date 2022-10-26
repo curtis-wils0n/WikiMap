@@ -11,25 +11,34 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/components.css" />
+  <link rel="stylesheet" href="/styles/index.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
   <script src="/vendor/jquery-3.0.0.js"></script>
 </head>
 
 <body>
   <%- include('header') %>
   <div class="content">
-    <%- include('nav') %>
-    <main class = 'container'>
-      <img src="https://github.com/curtis-wils0n/midterm-project/blob/styling-tests/images/Map-Pin.png?raw=true" id="pin-image">
-      <p>Welcome to WikiMap! Collaborate with your friends by creating maps and placing locations of the places you want to share.</p>
-      <img src ="https://raw.githubusercontent.com/curtis-wils0n/midterm-project/19342a8b05d1f667b01e7fefb1483a67f8659d8d/images/World_map_blank_without_borders.svg" alt = "Homepage Picture">
+    <main class="welcome">
+      <h1>Welcome to wikimap!</h1>
+      <p>Collaborate with your friends by creating maps and placing locations of the places you want to share.</p>
+      <hr>
+      <h2>Create interactable maps</h2>
+      <p>All wikimaps are shared publically, and authenticated users can help fill out maps with their own suggestions!</p>
+      <img src="https://github.com/curtis-wils0n/midterm-project/blob/styling-tests/images/landing-page-example.png?raw=true" alt="An example of a black-and-white styled wikimap with red pins, labeled 'best coffee'." class="landing-page-image">
+      <hr>
+      <h2>Discover fascinating new locations</h2>
+      <p>Explore maps made by others to find your next go-to restaurant, get ideas for first-date spots, or uncover underrated hiking trails.</p>
+      <img src="https://github.com/curtis-wils0n/midterm-project/blob/styling-tests/images/coffee-front.jpg?raw=true" alt="An illustrated coffee shop storefront on a peach background with green bushes." class="landing-page-image">
+      <hr>
+      <h2>Save you favourites</h2>
+      <p>Storing maps for later is made easy with a simple 'favourite' button, so your discoveries are kept safe.</p>
+      <img src="https://raw.githubusercontent.com/curtis-wils0n/midterm-project/styling-tests/images/party-illustration.webp" alt="Vector image of a group partying with music" class="landing-page-image">
     </main>
   </div>
-  <%- include('footer') %>
 </body>
 
 </html>
