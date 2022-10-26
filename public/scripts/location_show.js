@@ -30,6 +30,9 @@ $(() => {
         <input type="url" name="locationImage" placeholder="Image URL link" required/>
         <br>
         <button type="submit">Update</button>
+        <form method="POST" action="/maps/${map_id}/locations/${location.id}/delete">
+        <button type="submit" class="btn btn-primary">Delete</button>
+      </form>
       </fieldset>
     </div>`;
     $(`#newLocationForm`).append(renderEdit);

@@ -84,11 +84,11 @@ const updateLocation = (inputs) => {
   const queryString = `
   UPDATE locations
   SET title= $2, description = $3, image_url = $4
-  WHERE locations.id = $1 ;`
+  WHERE locations.id = $1 RETURNING *;`
   const queryParams = inputs
   return db.query(queryString, queryParams)
     .then(data => {
-      return data.rows;
+      return data.rows[0];
     });
 };
 
