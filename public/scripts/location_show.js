@@ -29,10 +29,10 @@ $(() => {
         <label for="locationImage">Image url:</label>
         <input type="url" name="locationImage" placeholder="Image URL link" required/>
         <br>
-        <button type="submit" id="edit-button">Update</button>
+        <button type="submit" class="green-button" id="edit-button">Update</button>
         </form>
         <form id = 'deleteForm' method="POST" action="/maps/${map_id}/locations/${location.id}/delete">
-        <button type="submit" class="btn btn-primary" id="delete-button">Delete</button>
+        <button type="submit" class="red-button" id="delete-button">Delete</button>
         </form>`;
     if( location.creator_id == user_id || location.owner_id == user_id) {
       editForm.append(renderEdit);
