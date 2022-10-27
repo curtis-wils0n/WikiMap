@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/location_show.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
@@ -22,13 +23,17 @@
   <%- include('header') %>
   <div id="map-identifier" value="<%= map_id %>"></div>
   <div id="location-identifier" value="<%= location_id %>"></div>
+  <div class="location-details">
+    <h1 id="title"></h1>
+    <p id="description"></p>
+    <img src="" alt="" id="image">
+  </div>
+  <hr>
+  <div id="new-location">
+    <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations/<%= location_id%>' method = 'POST' value = '<%= user_id%>'>
+    </form>
+  </div>
 
-  <h1 id="title"></h1>
-  <p id="description"></p>
-  <img src="" alt="" id="image">
-
-  <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations/<%= location_id%>' method = 'POST' value = '<%= user_id%>'>
-  </form>
 </body>
 
 </html>

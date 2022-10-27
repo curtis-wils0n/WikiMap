@@ -1,0 +1,95 @@
+.location-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+img {
+  width: 80vw;
+  height: 20vh;
+  border-style: solid;
+  border: 2px solid black;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-bottom: 1.5em;
+  transition: 1s;
+}
+
+img:hover {
+  height: 80vh;
+  transition: 1s;
+}
+
+#new-location {
+  margin-top: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#newLocationForm {
+  border-radius: 10px;
+  border: none;
+  background-color: lightgoldenrodyellow;
+  align-content: center;
+  border: 2px solid black;
+  margin-bottom: 2em;
+}
+
+#newLocationForm div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1em;
+}
+
+label {
+  font-weight: bold;
+  margin: 1%;
+  text-align: center;
+}
+
+input {
+  width: 75%;
+  border-radius: 10px;
+  margin-top: 4px;
+  text-align: center;
+  border: 2px solid black;
+}
+
+textarea {
+  width: 75%;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+button {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+button:hover {
+  box-shadow: 2px 2px;
+}
+
+button:active {
+  color: white;
+  background-color: black;
+}
+
+#edit-button {
+  margin-bottom: 10px;
+}
+
+#edit-button:hover {
+  background-color: lightgreen;
+}
+
+#delete-button:hover {
+  background-color: pink;
+}

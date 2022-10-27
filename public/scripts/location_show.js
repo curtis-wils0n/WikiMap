@@ -17,9 +17,8 @@ $(() => {
     $('#image').attr("alt", `${location.description}`);
     //Render update features if viewer is creator of location
     if( location.creator_id == user_id) {
-      const renderEdit = ` <div>
-      <fieldset>
-        <legend>Update location</legend>
+      const renderEdit = `
+      <div>
         <label for="title">Location name:</label>
         <input type="text" name="title" placeholder="Location name" required/>
         <br>
@@ -29,12 +28,11 @@ $(() => {
         <label for="locationImage">Image url:</label>
         <input type="url" name="locationImage" placeholder="Image URL link" required/>
         <br>
-        <button type="submit">Update</button>
+        <button type="submit" id="edit-button">Update</button>
         <form method="POST" action="/maps/${map_id}/locations/${location.id}/delete">
-        <button type="submit" class="btn btn-primary">Delete</button>
-      </form>
-      </fieldset>
-    </div>`;
+          <button type="submit" class="btn btn-primary" id="delete-button">Delete</button>
+        </form>
+      </div>`;
     $(`#newLocationForm`).append(renderEdit);
     };
   });
