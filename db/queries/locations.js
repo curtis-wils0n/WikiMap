@@ -43,8 +43,9 @@ const getLocationByIdOnMap = (inputs) => {
 
 const getLocationsByMapId = (map_id) => {
   const queryString = `
-  SELECT locations.*, maps.title as map_title FROM locations
+  SELECT locations.*, maps.title as map_title, users.name as owner_name FROM locations
   JOIN maps ON maps.id = locations.map_id
+  JOIN users ON users.id = locations.creator_id
   WHERE locations.map_id = $1
   `;
   const queryParams = [map_id];

@@ -148,14 +148,9 @@ $(document).ready(function() {
     for (const location of locations) {
       const $location = `
       <h3>${location.title}</h3>
+      <h4>Posted ${timeago.format(location.created_date)} by ${location.owner_name} </h4>
       <p><i>${location.description}</i></p>
-      <img src="${location.image_url}" id="location-preview"/>
-      <form method="GET" action="/maps/${id}/locations/${location.id}">
-        <button type="submit" id="edit-button">Edit</button>
-      </form>
-      <form method="POST" action="/maps/${id}/locations/${location.id}/delete">
-        <button type="submit" class="btn btn-primary" id="delete-button">Delete</button>
-      </form>`;
+      <img src="${location.image_url}" id="location-preview"/>`;
       container.append($location);
     }
   };
@@ -163,39 +158,13 @@ $(document).ready(function() {
   const loadLocations = () => {
     $.ajax({
       method: 'GET',
-      url: `/api/locations/maps/${id}`
+      url: `/api/maps/${id}/locations`
     })
     .then((response) => {
       renderLocations(response.locations);
     })
   }
   loadLocations();
-
-  //Render others marker info to delete if user is admin of map
-  const renderOtherLocations = (locations) => {
-    const container = $(`#admin-container`);
-    container.empty();
-    for (const location of locations) {
-      const $location = `
-      <p>${location.title}</p>
-      <p>${location.description}</p>
-      <img src="${location.image_url}" style="width:50%;"/>
-      <form method="POST" action="/maps/${id}/locations/${location.id}/delete">
-        <button type="submit" class="btn btn-primary">Delete</button>
-      </form>`;
-      container.append($location);
-    }
-  };
-  const loadOtherLocations = () => {
-    $.ajax({
-      method: 'GET',
-      url: `/api/locations/maps/${id}/admin`
-    })
-    .then((response) => {
-      renderOtherLocations(response.locations);
-    })
-  }
-  loadOtherLocations();
 });
 
 
