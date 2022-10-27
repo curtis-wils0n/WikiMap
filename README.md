@@ -25,7 +25,7 @@ Contibute to existing maps by placing pins, or create your own map to gather inp
 
 Each individual marker can hold detailed information about its location.
 
-![A screen recording gif of an individual location being shown: a mural of a kraken on the side of a building.](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-2.gif?raw=true)
+![A screenshot of an individual location being shown: a mural of a kraken on the side of a building.](https://github.com/curtis-wils0n/midterm-project/blob/gif-resizing/images/readme-screenshot-2.png?raw=true)
 
 ## Dependencies
 
