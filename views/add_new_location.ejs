@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <title>Map | WikiMap</title>
-
   <meta charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <meta name="viewport" content="width=device-width, initial-scale=1.0" >
@@ -11,39 +9,17 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
-  <link rel="stylesheet" href="/styles/map_show.css" />
+  <link rel="stylesheet" href="/styles/add_new_location.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script src="/scripts/map_show.js"></script>
   <script src="/scripts/map_animation.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>&libraries=places"  defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.full.min.js" integrity="sha512-wb3lqal2VtYhmlPAr232VP+Zus676CFAEYdywxIUSxG6F/X9WhN6SpREkWUdwBvMpd6gCKuKTGHhdum6m1wOvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
-
 <body>
-  <%- include('header') %>
-  <%- include('scroller') %>
-  <div id="identifier" value="<%= map_id %>"></div>
-  <div id="map-show-content">
-    <div id="beside-map">
-      <div id="map-details"></div>
-      <div id="map-buttons">
-        <div id='map-editor'></div>
-        <form id='favourite' action='/maps/<%= map_id %>' method='POST' value='<%=user_id%>'>
-          Favourite:
-          <button type = "submit" class = 'fa-solid fa-star iconStarInactive'></button>
-        </form>
-      </div>
-    </div>
-    <div id="map-container">
-      <div id="google-map" value = '<%= map_design %>'></div>
-      <input id='pac-input' placeholder='search for place' type='text'/>
-    </div>
-  </div>
-  <hr>
   <div id="new-location">
     <h2>Add a new location</h2>
     <i class="fa-solid fa-angles-down fa-fade" id = "toggleLocFormButton"></i>
@@ -68,12 +44,5 @@
       </div>
     </form>
   </div>
-  <hr>
-  <div id="list-locations">
-    <h2 id="map-show-list"><a href="/maps/<%= map_id %>/locations">List of Locations</a></h2>
-    <div id="location-container"></div>
-    <div id="admin-container"></div>
-  </div>
-
 </body>
 </html>

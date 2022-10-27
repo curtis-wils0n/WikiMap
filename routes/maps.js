@@ -134,7 +134,7 @@ router.get('/:map_id', (req, res) => {
       if (!mapExists) {
         res.status(404).send('Map with this Id does not exist');
       } else {
-        res.render('maps_show', templateVars);
+        res.render('map_show', templateVars);
       }
     })
 });
@@ -171,7 +171,7 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
     location_id: req.params.location_id,
     user_id: req.cookies['user_id'],
   };
-  res.render('locations_show', templateVars);
+  res.render('location_show', templateVars);
 });
 
 //Post request to update specific location on a map

@@ -1,0 +1,40 @@
+#list-locations {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#list-locations a {
+  color: black;
+}
+
+#list-locations a:hover {
+  color: white;
+  text-shadow: 2px 2px 0 black;
+}
+
+#location-preview {
+  width: 75vw;
+  height: 200px;
+  border: 2px solid black;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+#location-container {
+  margin:0 1.5em 0 1.5em;
+}
+
+#toggleLocFormButton {
+  color: black;
+  font-size: 2em;
+  margin-bottom: 1%;
+}
+
+#toggleLocFormButton:hover {
+  cursor: pointer;
+}
+
+#toggleLocFormButton:active {
+  color: white;
+}
