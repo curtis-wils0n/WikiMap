@@ -44,32 +44,6 @@
   margin: 10px 0 10px 0;
 }
 
-button {
-  text-decoration: none;
-  color: black;
-  background-color: white;
-  width: 100%;
-  border: 2px solid black;
-  border-radius: 10px;
-}
-
-button:hover {
-  box-shadow: 2px 2px;
-}
-
-button:active {
-  color: white;
-  background-color: black;
-}
-
 #edit-button {
   margin-bottom: 10px;
-}
-
-#edit-button:hover {
-  background-color: lightgreen;
-}
-
-#delete-button:hover {
-  background-color: pink;
 }
