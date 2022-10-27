@@ -9,10 +9,12 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 1.5em;
 }
 
 #map-details {
   padding: 1.5em;
+  margin-left: 1.5em;
 }
 
 #map-buttons {
@@ -22,7 +24,7 @@
 #map-container {
   display: flex;
   flex-direction: column;
-  padding-right: 10px;
+  padding-right: 1.5em;
 }
 
 #pac-input {
@@ -30,7 +32,7 @@
   appearance: none;
   padding: 12px;
   font-size: 14px;
-  width: 80vw;
+  width: 100%;
   border-radius: 10px;
   border: 2px solid black;
 }
@@ -38,7 +40,7 @@
 #google-map {
   border: 2px solid black;
   border-radius: 10px;
-  width: 80vw;
+  width: 75vw;
   height: 80vh;
   margin: 10px 0 10px 0;
 }
@@ -146,6 +148,10 @@ textarea {
   border: 2px solid black;
   border-radius: 10px;
   object-fit: cover;
+}
+
+#location-container {
+  margin:0 1.5em 0 1.5em;
 }
 
 #toggleLocFormButton {
