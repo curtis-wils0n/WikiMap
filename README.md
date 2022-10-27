@@ -15,7 +15,13 @@ Design was inspired by neubrutalist sites such as [Gumroad](https://gumroad.com/
 
 ## Screenshots
 
+Users can access a list of diverse and creative maps.
+
 ![A screenshot of WikiMap's map display, with a light blue background and goldenrod yellow foreground](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-1.png?raw=true)
+
+Each individual marker can hold detailed information about its location.
+
+![A screen recording gif of an individual location being shown: a mural of a kraken on the side of a building.](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-2.gif?raw=true)
 
 ## Dependencies
 
