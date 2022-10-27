@@ -11,14 +11,14 @@ $(() => {
       $(`<li class="user">`).text(user.name).appendTo($usersList);
     }
   });
-  
+
   //Favourite map loader
   const user_id = $('#favourite-container').attr('value');
   const renderFavourites = (favourites) => {
     const container = $('#favourite-container')
     container.empty();
     for (const favourite of favourites) {
-      const $favourite = `<p>${favourite.title}</p>`
+      const $favourite = `<a class = 'user-list' href ="/maps/${favourite.map_id}">${favourite.title}</a>`
       container.append($favourite);
     }
   };
@@ -39,7 +39,7 @@ $(() => {
     const container = $('#contribution-container')
     container.empty();
     for (const contribution of contributions) {
-      const $contribution = `<p>${contribution.title}</p>`
+      const $contribution = `<a class = 'user-list' href ="/maps/${contribution.map_id}">${contribution.title}</p>`
       container.append($contribution);
     }
   };

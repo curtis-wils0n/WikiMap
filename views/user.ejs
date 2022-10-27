@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/profile.css" />
   <script src="https://kit.fontawesome.com/ec6a812608.js" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,16 +23,24 @@
 <body>
   <%- include('header') %>
   <main class = 'container'>
-    <h1><%=name%></h1>
-    <h2><%=email%></h2>
-    <img src = <%=profile_picture_url%>></h1>
+    <div id = 'profile-container'>
+      <div id = 'name-email-container'>
+        <h1><%=name%></h1>
+        <h3 class = 'email'><%=email%></h3>
+      </div>
+      <img id="profile-image" src = <%=profile_picture_url%>></h1>
+    </div>
     <div>
-      <span id = 'favourite-container' class = 'map-container' value = '<%=id%>'>
+    <div id = 'fav-contr-container'>
+      <div id = 'favourite-list'>
         <h3>Favourite Map</h3>
-      </span>
-     <span id = 'contribution-container' class = 'map-container'>
-        <h3>Contribution Map</h3>
-      </span>
+        <span id = 'favourite-container' class = 'map-container' value = '<%=id%>'></span>
+      </div>
+      <div id = 'contribution-list'>
+       <h3>Contribution Map</h3>
+       <span id = 'contribution-container' class = 'map-container'></span>
+      </div>
+    </div>
     </div>
   </main>
 </body>

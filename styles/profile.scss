@@ -1,0 +1,57 @@
+body {
+  background-color: lightblue;
+}
+
+main {
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+
+#profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 50%;
+  min-width: 30%;
+  margin: 1%;
+  border-radius: 10px;
+  border: none;
+  background-color: lightgoldenrodyellow;
+  border: 2px solid black;
+}
+
+#name-email-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#name-email-container h1 {
+  margin-bottom: 0%;
+}
+
+#name-email-container h3 {
+  color: grey;
+  font-style: italic;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+#profile-image {
+  border-radius: 75%;
+  border: 2px solid black;
+  width: 40%;
+  margin-bottom: 2%;
+}
+
+//CSS for favourite and contribution list
+
+#fav-contr-container {
+  display: flex;
+  flex-direction: row;
+}
+
