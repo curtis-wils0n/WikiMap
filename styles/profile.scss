@@ -55,6 +55,8 @@ main {
   flex-direction: row;
   justify-content: space-between;
   width: 50vw;
+  height: 70%;
+  min-height: 50%;
 }
 
 .list {
@@ -63,7 +65,6 @@ main {
   justify-content: flex-start;
   align-items: center;
   min-width: 49%;
-  margin-left: 1%;
   border: 2px solid black;
   border-radius: 10px;
   background-color: lightgoldenrodyellow;
@@ -86,11 +87,13 @@ main {
   text-decoration: none;
   color: black;
   font-size: 1em;
+  font-weight: bold;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .user-list a:hover {
   color: lightblue;
-  font-weight: bold;
   text-shadow: 2px 2px 0 black;
 }
 
