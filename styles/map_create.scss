@@ -67,3 +67,10 @@ button:hover {
   cursor: pointer;
   box-shadow: 2px 2px;
 }
+
+button:active {
+  color: white;
+  background-color: black;
+}
+
+

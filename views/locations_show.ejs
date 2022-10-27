@@ -21,19 +21,18 @@
 
 <body>
   <%- include('header') %>
-  <div id="map-identifier" value="<%= map_id %>"></div>
-  <div id="location-identifier" value="<%= location_id %>"></div>
-  <div class="location-details">
-    <h1 id="title"></h1>
-    <p id="description"></p>
-    <img src="" alt="" id="image">
-  </div>
-  <hr>
-  <div id="new-location">
-    <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations/<%= location_id%>' method = 'POST' value = '<%= user_id%>'>
-    </form>
-  </div>
-
+  <main>
+    <div id="map-identifier" value="<%= map_id %>"></div>
+    <div id="location-identifier" value="<%= location_id %>"></div>
+    <div class="location-details">
+      <h1 id="title"></h1>
+      <p id="description"></p>
+      <img src="" alt="" id="image">
+    </div>
+    <hr>
+    <div id="new-location" value = "<%= user_id%>">
+    </div>
+  </main>
 </body>
 
 </html>

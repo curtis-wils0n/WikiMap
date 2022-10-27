@@ -1,3 +1,10 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 .location-details {
   display: flex;
   flex-direction: column;
@@ -25,9 +32,11 @@ img:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
-#newLocationForm {
+#new-location {
+  width: 50%;
   border-radius: 10px;
   border: none;
   background-color: lightgoldenrodyellow;
@@ -36,13 +45,23 @@ img:hover {
   margin-bottom: 2em;
 }
 
-#newLocationForm div {
+#newLocationForm {
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   margin: 1em;
+  margin-bottom: 0;
 }
 
+#deleteForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  flex-wrap: wrap;
+  margin: 2%;
+}
 label {
   font-weight: bold;
   margin: 1%;
@@ -71,6 +90,11 @@ button {
   background-color: white;
   border: 2px solid black;
   border-radius: 10px;
+  padding: 3%;
+}
+
+#delete-button {
+  padding: 35%;
 }
 
 button:hover {
