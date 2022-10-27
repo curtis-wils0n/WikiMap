@@ -27,6 +27,13 @@ img:hover {
   transition: 1s;
 }
 
+#toggleUpdateForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 #new-location {
   margin-top: 1.5em;
   display: flex;
@@ -116,4 +123,18 @@ button:active {
 
 #delete-button:hover {
   background-color: pink;
+}
+
+#toggleLocFormButton {
+  color: red;
+  font-size: 2em;
+  margin-bottom: 1%;
+}
+
+#toggleLocFormButton:hover {
+  cursor: pointer;
+}
+
+#toggleLocFormButton:active {
+  color: white;
 }

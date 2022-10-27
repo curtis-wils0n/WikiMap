@@ -18,12 +18,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script src="/scripts/map_show.js"></script>
+  <script src="/scripts/map_animation.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=<%= api_key %>&libraries=places"  defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.full.min.js" integrity="sha512-wb3lqal2VtYhmlPAr232VP+Zus676CFAEYdywxIUSxG6F/X9WhN6SpREkWUdwBvMpd6gCKuKTGHhdum6m1wOvQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
   <%- include('header') %>
+  <%- include('scroller') %>
   <div id="identifier" value="<%= map_id %>"></div>
   <div id="map-show-content">
     <div id="beside-map">
@@ -44,6 +46,7 @@
   <hr>
   <div id="new-location">
     <h2>Add a new location</h2>
+    <i class="fa-solid fa-angles-down fa-fade" id = "toggleLocFormButton"></i>
     <form id = 'newLocationForm' action = '/maps/<%= map_id %>/locations' method = 'POST'>
       <div>
         <label for="title">Enter location name:</label>

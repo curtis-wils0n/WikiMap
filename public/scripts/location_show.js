@@ -10,7 +10,8 @@ $(() => {
   .then((response) => {
     const location = response.location;
     const editForm = $(`#new-location`);
-    editForm.hide();
+    const editToggle = $(`#toggleUpdateForm`);
+    editToggle.hide();
     //Render main info and details accessible to anyone
     $('#title').html(`${location.title}`);
     $('#description').html(`${location.description}`);
@@ -34,8 +35,8 @@ $(() => {
         <button type="submit" class="btn btn-primary" id="delete-button">Delete</button>
         </form>`;
     if( location.creator_id == user_id || location.owner_id == user_id) {
-    editForm.append(renderEdit);
-    editForm.show();
+      editForm.append(renderEdit);
+      editToggle.show();
     };
   });
 });

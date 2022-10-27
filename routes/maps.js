@@ -129,7 +129,14 @@ router.get('/:map_id', (req, res) => {
     map_design: process.env.MAP_DESIGN,
     user_id: req.cookies['user_id']
   };
-  res.render('maps_show', templateVars);
+  mapQueries.getMapsById(templateVars.map_id)
+    .then((mapExists) => {
+      if (!mapExists) {
+        res.status(404).send('Map with this Id does not exist');
+      } else {
+        res.render('maps_show', templateVars);
+      }
+    })
 });
 
 //Direct to list of locations marked on a map

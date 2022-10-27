@@ -17,10 +17,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" rel="stylesheet">
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/location_show.js"></script>
+  <script defer src="/scripts/location_animation.js"></script>
 </head>
 
 <body>
   <%- include('header') %>
+  <%- include('scroller') %>
   <main>
     <div id="map-identifier" value="<%= map_id %>"></div>
     <div id="location-identifier" value="<%= location_id %>"></div>
@@ -30,6 +32,10 @@
       <img src="" alt="" id="image">
     </div>
     <hr>
+    <div id = 'toggleUpdateForm'>
+      <h2>Update/Delete Location</h2>
+    <i class="fa-solid fa-angles-down fa-fade" id = "toggleLocFormButton"></i>
+    </div>
     <div id="new-location" value = "<%= user_id%>">
     </div>
   </main>

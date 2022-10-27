@@ -147,3 +147,18 @@ textarea {
   border-radius: 10px;
   object-fit: cover;
 }
+
+#toggleLocFormButton {
+  color: red;
+  font-size: 2em;
+  margin-bottom: 1%;
+}
+
+#toggleLocFormButton:hover {
+  cursor: pointer;
+}
+
+#toggleLocFormButton:active {
+  color: white;
+}
+

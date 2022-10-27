@@ -18,6 +18,7 @@ const getMapsById = (map_id) => {
   const queryParams = [map_id]
   return db.query(queryString, queryParams)
     .then(data => {
+      console.log(data.rows)
       return data.rows[0];
     });
 };
