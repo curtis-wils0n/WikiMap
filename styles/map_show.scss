@@ -47,3 +47,16 @@
 #update-button {
   margin-bottom: 10px;
 }
+
+
+.iconStarActive {
+  color: rgb(211, 52, 52);
+  box-shadow: 2px 2px black;
+}
+
+#favourite {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
