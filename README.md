@@ -19,6 +19,10 @@ Users can access a list of diverse and creative maps.
 
 ![A screenshot of WikiMap's map display, with a light blue background and goldenrod yellow foreground](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-1.png?raw=true)
 
+Contibute to existing maps by placing pins, or create your own map to gather input from others!
+
+![A screenshot of a black-and-white Google Map with red markers, alongside a title reading 'Downtown Vancouver murals'](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-3.png?raw=true)
+
 Each individual marker can hold detailed information about its location.
 
 ![A screen recording gif of an individual location being shown: a mural of a kraken on the side of a building.](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-2.gif?raw=true)
@@ -33,3 +37,11 @@ Each individual marker can hold detailed information about its location.
 - **morgan** 1.9.1
 - **pg** 8.5.0
 - **Sass** 1.35.1
+
+## Setting up
+
+1. Clone this repository onto your local device.
+2. Install dependencies with `npm install`.
+3. Create a [Google Maps Platform](https://mapsplatform.google.com/) account and generate an API key (free $200 credit).
+4. In a .env file, define `MAP_API` with the value of your key.
+6. Start the local web server by running `npm run local`, and navigate to http://localhost:8080/ on a browser of your choice.
