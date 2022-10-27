@@ -151,6 +151,7 @@ router.post('/:map_id/locations', (req, res) => {
     req.body.locationImage,
     req.body.lat,
     req.body.lng,
+    new Date()
   ];
   console.log(req.body.lat);
   locationQueries.newLocation(locationInfo)

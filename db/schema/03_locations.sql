@@ -12,5 +12,6 @@ CREATE TABLE locations (
 
   -- google api values
   lat FLOAT,
-  lng FLOAT
+  lng FLOAT,
+  created_date DATE
 );

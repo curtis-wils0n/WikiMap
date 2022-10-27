@@ -2,8 +2,8 @@ const db = require('../connection');
 
 const newLocation = (inputs) => {
   const queryString = `
-  INSERT INTO locations (creator_id, map_id, title, description, image_url, lat, lng)
-  VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *;`
+  INSERT INTO locations (creator_id, map_id, title, description, image_url, lat, lng, created_date)
+  VALUES ($1,$2,$3,$4,$5,$6,$7,$8) RETURNING *;`
   return db.query(queryString, inputs)
     .then(data => {
       return data.rows[0];
