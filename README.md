@@ -7,7 +7,7 @@ Created by [Kevin Lee](https://github.com/jhssttj) and [Curtis Wilson](https://g
 
 🗺️🧭 **WikiMap** is a bold, easy-to-use social map-making website that allows users to create, edit, and share custom maps with friends.
 
-![](https://github.com/curtis-wils0n/midterm-project/blob/styling-tests/images/splash-example.png?raw=true)
+![](https://github.com/curtis-wils0n/midterm-project/blob/master/images/splash-example.png?raw=true)
 
 WikiMap utilizes Sass, Ajax, and jQuery calls to display front-end content, while Node, Express, and PostgreSQL operate the back-end.
 
@@ -17,15 +17,15 @@ Design was inspired by neubrutalist sites such as [Gumroad](https://gumroad.com/
 
 Users can access a list of diverse and creative maps.
 
-![A screenshot of WikiMap's map display, with a light blue background and goldenrod yellow foreground](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-1.png?raw=true)
+![A screenshot of WikiMap's map display, with a light blue background and goldenrod yellow foreground](https://github.com/curtis-wils0n/midterm-project/blob/master/images/readme-screenshot-1.png?raw=true)
 
 Contibute to existing maps by placing pins, or create your own map to gather input from others!
 
-![A screenshot of a black-and-white Google Map with red markers, alongside a title reading 'Downtown Vancouver murals'](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-3.png?raw=true)
+![A screenshot of a black-and-white Google Map with red markers, alongside a title reading 'Downtown Vancouver murals'](https://github.com/curtis-wils0n/midterm-project/blob/master/images/readme-screenshot-3.png?raw=true)
 
 Each individual marker can hold detailed information about its location.
 
-![A screenshot of an individual location being shown: a mural of a kraken on the side of a building.](https://github.com/curtis-wils0n/midterm-project/blob/gif-resizing/images/readme-screenshot-2.png?raw=true)
+![A screenshot of an individual location being shown: a mural of a kraken on the side of a building.](https://github.com/curtis-wils0n/midterm-project/blob/master/images/readme-screenshot-2.png?raw=true)
 
 ## Dependencies
 
