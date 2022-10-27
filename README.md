@@ -15,7 +15,7 @@ Design was inspired by neubrutalist sites such as [Gumroad](https://gumroad.com/
 
 ## Screenshots
 
-
+![A screenshot of WikiMap's map display, with a light blue background and goldenrod yellow foreground](https://github.com/curtis-wils0n/midterm-project/blob/readme-creation/images/readme-screenshot-1.png?raw=true)
 
 ## Dependencies
 
