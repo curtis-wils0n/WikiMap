@@ -2,8 +2,8 @@
 
 
 $(document).ready(function() {
-  const id = $('#identifier').attr('value');
-  const userId = $('#favourite').attr('value');
+  const id = Number ($('#identifier').attr('value'));
+  const userId = Number ($('#favourite').attr('value'));
   const mapDesign = $('#google-map').attr('value');
   $.ajax({
     method: 'GET',
@@ -28,7 +28,7 @@ $(document).ready(function() {
     $(`<hr/>`).appendTo($mapDetails);
     $(`<p class="description">`).text(map.description).appendTo($mapDetails);
     //Render edit/delete feature if owner of map
-    if (map.owner_id == userId){
+    if (map.owner_id === userId){
       $mapEditor.append(updateFeature);
     };
 
@@ -123,7 +123,7 @@ $(document).ready(function() {
   })
   .done((response) => {
     for (const favourite of response.favourites) {
-      if (favourite.id == id ) {
+      if (favourite.id === id ) {
         $('.fa-star').addClass('iconStarActive')
         break;
       }

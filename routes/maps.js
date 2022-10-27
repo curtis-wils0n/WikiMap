@@ -10,7 +10,6 @@ const router  = express.Router();
 const mapQueries = require('../db/queries/maps');
 const locationQueries = require('../db/queries/locations');
 const favouriteQueries = require('../db/queries/favourites');
-const e = require('express');
 
 router.use((req,res,next) => {
   const userId = req.cookies['user_id'];
@@ -77,13 +76,14 @@ router.post('/:map_id/update', (req, res) => {
   ];
   mapQueries.getMapsById(mapInfo[0])
   .then ((map) => {
-    if (map.owner_id == req.cookies['user_id']) {
+    if (map.owner_id === Number(req.cookies['user_id'])) {
       mapQueries.updateMap(mapInfo)
         .then (() => res.redirect(`/maps/${req.params.map_id}`))
     } else {
       res.status(401).send('Cannot update: You are not the owner of this map');
     }
   })
+  .catch ((err) => console.log(err.message));
 });
 
 //Post request to delete map
@@ -93,7 +93,7 @@ router.post('/:map_id/delete', (req, res) => {
   ];
   mapQueries.getMapsById(mapId[0])
   .then ((map) => {
-    if (map.owner_id == req.cookies['user_id']) {
+    if (map.owner_id === Number (req.cookies['user_id'])) {
       mapQueries.deleteMap(mapId)
         .then (() => res.redirect(`/maps/`))
     } else {
@@ -177,14 +177,15 @@ router.get('/:map_id/locations/:location_id', (req, res) => {
 //Post request to update specific location on a map
 router.post('/:map_id/locations/:location_id', (req, res) => {
   const locationInfo = [
-    req.params.location_id,
+    Number (req.params.location_id),
     req.body.title,
     req.body.description,
     req.body.locationImage
   ];
   locationQueries.getLocationsById(locationInfo[0])
     .then ((location) => {
-      if (location.creator_id == req.cookies['user_id']) {
+      console.log(location);
+      if (location.creator_id === Number(req.cookies['user_id']) || location.map_owner === Number(req.cookies['user_id']) ) {
         locationQueries.updateLocation(locationInfo)
         .then (() => res.redirect(`/maps/${req.params.map_id}`))
       } else {
@@ -200,7 +201,7 @@ router.post('/:map_id/locations/:location_id/delete', (req, res) => {
   ];
   locationQueries.getLocationsById(deleteLocation[0])
   .then ((location) => {
-    if (location.creator_id == req.cookies['user_id'] || location.map_owner == req.cookies['user_id']) {
+    if (location.creator_id === Number(req.cookies['user_id']) || location.map_owner === Number(req.cookies['user_id'])) {
       locationQueries.deleteLocation(deleteLocation)
       .then (() => res.redirect(`/maps/${req.params.map_id}`))
     } else {
