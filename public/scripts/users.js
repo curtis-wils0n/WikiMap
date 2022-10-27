@@ -18,7 +18,7 @@ $(() => {
     const container = $('#favourite-container')
     container.empty();
     for (const favourite of favourites) {
-      const $favourite = `<a class = 'user-list' href ="/maps/${favourite.map_id}">${favourite.title}</a>`
+      const $favourite = `<li class = 'user-list'><a href ="/maps/${favourite.id}">${favourite.title}</a></li>`
       container.append($favourite);
     }
   };
@@ -39,7 +39,7 @@ $(() => {
     const container = $('#contribution-container')
     container.empty();
     for (const contribution of contributions) {
-      const $contribution = `<a class = 'user-list' href ="/maps/${contribution.map_id}">${contribution.title}</p>`
+      const $contribution = `<li class = 'user-list'><a href ="/maps/${contribution.id}">${contribution.title}</a></li>`
       container.append($contribution);
     }
   };

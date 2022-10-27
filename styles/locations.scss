@@ -39,17 +39,18 @@ main {
   align-items: center;
   text-align: center;
   color: black;
-  margin: 1%
+  margin: 5%
 }
 
 ul a {
   text-decoration: none;
-  font-weight: bold;
   color: black;
-  font-size: 20px;
+  overflow-wrap: break-word;
+
 }
 
 ul a:hover {
   color: lightblue;
+  font-weight: bold;
   text-shadow: 2px 2px 0 black;
 }
