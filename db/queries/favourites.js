@@ -6,7 +6,6 @@ const newFavourite = (inputs) => {
   VALUES ($1,$2) RETURNING *;`
   return db.query(queryString, inputs)
     .then(data => {
-      console.log(data);
       return data.rows[0];
     })
 };
@@ -17,7 +16,6 @@ const deleteFavourite = (inputs) => {
   WHERE owner_id = $1 AND map_id= $2;`
   return db.query(queryString, inputs)
     .then(data => {
-      console.log(data);
       return data.rows[0];
     })
 };
@@ -44,7 +42,6 @@ const checkFavouritesExist = (inputs) => {
   SELECT * FROM favourites WHERE owner_id = $1 AND map_id = $2`
   return db.query(queryString, inputs)
     .then(data => {
-      console.log(data.rows);
       return (data.rows.length !== 0);
     });
 }

@@ -18,7 +18,6 @@ const getMapsById = (map_id) => {
   const queryParams = [map_id]
   return db.query(queryString, queryParams)
     .then(data => {
-      console.log(data.rows)
       return data.rows[0];
     });
 };
@@ -29,7 +28,6 @@ const newMap = (inputs) => {
   VALUES ($1,$2,$3,$4,$5,$6,$7) RETURNING *;`
   return db.query(queryString, inputs)
     .then(data => {
-      console.log(data);
       return data.rows[0];
     })
 };
@@ -53,7 +51,6 @@ const deleteMap = (inputs) => {
   const queryParams = inputs;
   return db.query(queryString, queryParams)
     .then(data => {
-      console.log(data);
       return data.rows[0];
     })
 };
