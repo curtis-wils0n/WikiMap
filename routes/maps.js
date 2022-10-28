@@ -39,11 +39,12 @@ router.get('/create', (req, res) => {
 
 //Post request to create new map
 router.post('/create', (req, res) => {
+  const date = Date();
   const mapInfo = [
     req.cookies['user_id'],
     req.body.title,
     req.body.description,
-    new Date(),
+    date.now,
     req.body.zoom,
     req.body.lat,
     req.body.lng
@@ -150,6 +151,7 @@ router.get('/:map_id/locations', (req, res) => {
 
 //Post request to put new location marker on map
 router.post('/:map_id/locations', (req, res) => {
+  const date = Date();
   const locationInfo = [
     req.cookies['user_id'],
     req.params.map_id,
@@ -158,7 +160,7 @@ router.post('/:map_id/locations', (req, res) => {
     req.body.locationImage,
     req.body.lat,
     req.body.lng,
-    new Date()
+    date.now,
   ];
   locationQueries.newLocation(locationInfo)
     .then (() => res.redirect(`/maps/${req.params.map_id}`))
